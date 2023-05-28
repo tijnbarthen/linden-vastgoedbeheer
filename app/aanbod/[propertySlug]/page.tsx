@@ -1,4 +1,4 @@
-export default function Page({ params }) {
+export default function Page() {
   return (
     <div className="bg-slate-100">
       <div className="container max-w-6xl mx-auto px-4 md:px-6 md:flex items-start justify-between sm:py-5 md:py-10">

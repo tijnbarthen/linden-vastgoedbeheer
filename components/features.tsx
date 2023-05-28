@@ -74,7 +74,7 @@ export default function Features() {
   );
 }
 
-const FeatureItem = ({ item }) => {
+const FeatureItem = ({ item }: { item: any }) => {
   return (
     <li>
       <div className="text-2xl font-cabinet-grotesk font-bold text-gray-700 mb-2">

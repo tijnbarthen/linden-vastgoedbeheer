@@ -80,7 +80,7 @@ export default function Testimonials() {
   );
 }
 
-const TestimonialItem = ({ item }) => {
+const TestimonialItem = ({ item }: { item: any }) => {
   return (
     <div className="swiper-slide space-y-8 lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left">
       <div className="shrink-0 relative inline-flex">
