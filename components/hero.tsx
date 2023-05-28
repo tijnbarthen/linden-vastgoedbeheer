@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative">
       {/* Bg */}
       <div
-        className="absolute inset-0 rounded-bl-[100px] bg-blue-50 pointer-events-none -z-10"
+        className="absolute inset-0 rounded-bl-[100px] bg-blue-100 pointer-events-none -z-10"
         aria-hidden="true"
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6">

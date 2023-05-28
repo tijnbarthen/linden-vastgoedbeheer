@@ -1,4 +1,10 @@
+'use client';
+
+import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+import { FiMenu } from 'react-icons/fi';
+import Logo from '@/public/images/logo-linden.png';
 
 const navLinks = [
   {
@@ -17,32 +23,44 @@ const navLinks = [
     title: 'Diensten',
     path: '/diensten',
   },
+  {
+    title: 'Onderhoud',
+    path: '/onderhoud',
+  },
 ];
 
 export default function Header({ nav = true }: { nav?: boolean }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <header className="absolute w-full z-30">
+    <header className="block w-full z-30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
-            <Link className="block group" href="/" aria-label="Cruip">
-              <h2 className="h4 font-cabinet-grotesk ">
-                Linden Vastgoedbeheer
-              </h2>
+            <Link href="/" className="block group" aria-label="Cruip">
+              <Image src={Logo} width={200} height={50} alt="logo" />
             </Link>
           </div>
-          {/* Desktop navigation */}
+          <div className="md:hidden">
+            <button onClick={toggleMenu} type="button">
+              <FiMenu className="h-6 w-6 text-gray-600" />
+            </button>
+          </div>
+          {/* Desktop and mobile navigation */}
           {nav && (
-            <nav className="flex grow">
-              {/* Desktop sign in links */}
-              <ul className="flex grow justify-end flex-wrap items-center">
+            <nav className={`md:flex ${isOpen ? 'block' : 'hidden'}`}>
+              <ul className="flex flex-row sm:flex-grow md:justify-end flex-wrap items-center">
                 {navLinks.map((item, index) => (
                   <li className="ml-3" key={index}>
                     <Link
-                      className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
                       href={item.path}
+                      className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
                     >
                       {item.title}
                     </Link>
@@ -50,8 +68,8 @@ export default function Header({ nav = true }: { nav?: boolean }) {
                 ))}
                 <li className="ml-3">
                   <Link
-                    className="btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm"
                     href="/signup"
+                    className="btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm"
                   >
                     Contact
                   </Link>

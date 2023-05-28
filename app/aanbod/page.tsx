@@ -1,28 +1,32 @@
+import Link from 'next/link';
+
 const Card = ({ house }) => {
   return (
-    <div className="flex flex-col rounded-lg shadow-lg bg-white">
-      <img
-        className="w-full h-56 object-cover"
-        src={house.image}
-        alt={house.title}
-      />
-      <div className="flex flex-col justify-between flex-grow">
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2 font-cabinet-grotesk text-black">
-            {house.title}
+    <Link href="/aanbod/[id]" as={`/aanbod/${house.id}`}>
+      <div className="flex flex-col rounded-lg shadow-lg bg-white cursor-pointer">
+        <img
+          className="w-full h-56 object-cover rounded-lg"
+          src={house.image}
+          alt={house.title}
+        />
+        <div className="flex flex-col justify-between flex-grow">
+          <div className="px-6 py-4">
+            <div className="font-bold text-xl mb-2 font-cabinet-grotesk text-black">
+              {house.title}
+            </div>
+            <p className="text-gray-700 text-base">{house.description}</p>
           </div>
-          <p className="text-gray-700 text-base">{house.description}</p>
-        </div>
-        <div className="px-6 py-4">
-          <span className="inline-block bg-indigo-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2">
-            {house.price}
-          </span>
-          <span className="inline-block bg-indigo-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2 ">
-            {house.location}
-          </span>
+          <div className="px-6 py-4">
+            <span className="inline-block bg-indigo-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2">
+              {house.price}
+            </span>
+            <span className="inline-block bg-indigo-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2 ">
+              {house.location}
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -80,7 +84,7 @@ const houses = [
 export default function Page() {
   return (
     <>
-      <div className="bg-white min-h-screen font-cabinet-grotesk mt-20 h-full">
+      <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
         <div className="text-center py-28 bg-indigo-200 text-white">
           <h1 className="h1 text-5xl font-bold ">Ons aanbod</h1>
         </div>

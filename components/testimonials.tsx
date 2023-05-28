@@ -48,7 +48,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section>
+    <section className="mt-20 mb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pb-8">
           <div className="relative">
@@ -85,11 +85,18 @@ const TestimonialItem = ({ item }) => {
     <div className="swiper-slide space-y-8 lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left">
       <div className="shrink-0 relative inline-flex">
         <img
-          className="rounded-full"
+          className="rounded-full shadow-lg"
           src={item.image}
           width={280}
           height={280}
           alt="Testimonial 03"
+          style={{
+            maxWidth: '280px',
+            maxHeight: '280px',
+            minWidth: '280px',
+            minHeight: '280px',
+            objectFit: 'cover',
+          }}
         />
         <div className="absolute right-0 bottom-0 mr-4 mb-6">
           <a

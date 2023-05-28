@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
+import Logo from '@/public/images/logo-linden.png';
 
 export default function Footer() {
   return (
@@ -14,9 +17,7 @@ export default function Footer() {
                 href="/"
                 aria-label="Cruip"
               >
-                <h2 className="h4 font-cabinet-grotesk ">
-                  Linden Vastgoedbeheer
-                </h2>
+                <Image src={Logo} width={200} height={120} alt="logo" />
               </Link>
             </div>
             <form className="w-full max-w-sm">
