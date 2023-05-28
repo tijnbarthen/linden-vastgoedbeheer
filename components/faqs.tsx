@@ -64,7 +64,7 @@ export default function Faqs() {
   );
 }
 
-const FaqItem = ({ item }) => {
+const FaqItem = ({ item }: { item: any }) => {
   return (
     <div className="space-y-2">
       <h4 className="text-xl font-cabinet-grotesk font-bold">{item.title}</h4>

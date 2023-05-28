@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Card = ({ house }) => {
+const Card = ({ house }: { house: any }) => {
   return (
     <Link href="/aanbod/[id]" as={`/aanbod/${house.id}`}>
       <div className="flex flex-col rounded-lg shadow-lg bg-white cursor-pointer">
