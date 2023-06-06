@@ -44,10 +44,12 @@ export default function Features() {
     <section className="bg-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
         <div className="py-12 md:py-20">
-          <div className="pb-12 md:pb-20">
-            <h2 className="h2 font-cabinet-grotesk text-center  text-blue-950">
-              Wat doen we allemaal?
-            </h2>
+          <div className="max-w-3xl mx-auto text-center pb-12">
+            <h2 className="text-3xl h2">Wat doen we allemaal?</h2>
+            <p className="mt-4 text-lg text-gray-500">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+              magnam voluptatum cupiditate veritatis in, accusamus quisquam.
+            </p>
           </div>
 
           <ul className="md:flex md:space-x-12 space-y-8 md:space-y-0">

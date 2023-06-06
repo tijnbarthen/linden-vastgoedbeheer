@@ -40,7 +40,7 @@ export default function Faqs() {
         <div className="py-12 md:py-20 border-b border-gray-100">
           {/* Section header */}
           <div className="pb-12 md:pb-20">
-            <h2 className="h2 font-cabinet-grotesk">Veelgestelde vragen</h2>
+            <h2 className="h2 font-3xl">Veelgestelde vragen</h2>
           </div>
           {/* Columns */}
           <div className="md:flex md:space-x-12 space-y-8 md:space-y-0">

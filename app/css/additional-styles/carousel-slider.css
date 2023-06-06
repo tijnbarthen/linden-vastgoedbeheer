@@ -1,0 +1,8 @@
+.carousel-root {
+    border-radius: 20px !important;
+}
+
+.carousel-slider {
+    border-radius: 20px;
+    max-height: 400px;
+}

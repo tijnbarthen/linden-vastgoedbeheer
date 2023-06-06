@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import HouseCard from '@/components/organisms/HouseCard';
+import Header from '@/components/organisms/Header';
 
 const houses = [
   {
@@ -64,11 +65,9 @@ export default function Page() {
   return (
     <>
       <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
-        <div className="text-center py-28 bg-blue-950 text-white">
-          <h1 className="h1 text-5xl font-bold ">Ons aanbod</h1>
-        </div>
-        <div className="container max-w-6xl mx-auto md:py-24 md:px-6 py-5 px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
+        <Header title="Aanbod" />
+        <div className="container max-w-6xl mx-auto py-6  px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {houses.map((house) => (
               <HouseCard key={house.id} house={house} />
             ))}

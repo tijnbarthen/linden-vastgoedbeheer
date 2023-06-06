@@ -13,6 +13,7 @@ import Faqs from '@/components/faqs';
 import Blog from '@/components/blog';
 import Cta from '@/components/cta';
 import Features from '@/components/features';
+import TestimonialsDouble from '@/components/organisms/TestimonialsDouble';
 
 export default function Home() {
   return (
@@ -23,7 +24,8 @@ export default function Home() {
       <Features />
       {/* <Creatives /> */}
       {/* <Pricing /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
+      <TestimonialsDouble />
       {/* <Faqs /> */}
       {/* <Blog /> */}
       <Cta />

@@ -1,46 +1,131 @@
+import Header from '@/components/organisms/Header';
+
 export default function Page() {
   return (
     <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
-      <div className="text-center py-28 bg-blue-950 text-white">
-        <h1 className="h1 text-5xl font-bold ">Onderhoud</h1>
-      </div>
-      <div className="container max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Maintenance Request Form */}
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Onderhoud verzoek</h2>
-            <form className="flex flex-col gap-4">
-              <label htmlFor="name">Naam:</label>
-              <input type="text" id="name" className="input" />
+      <Header title="Onderhoud" />
+      <Voorbeeld />
+    </div>
+  );
+}
 
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" className="input" />
+function Voorbeeld() {
+  return (
+    <form className="max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4">
+      <div className="space-y-12">
+        <div className="border-b border-gray-900/10 pb-12">
+          <h2 className="text-3xl font-semibold leading-7 text-gray-900">
+            Persoonlijke informatie
+          </h2>
+          <p className="mt-1 text-sm leading-6 text-gray-600">
+            Gebruik een permanent adres waar je post kunt ontvangen.
+          </p>
 
-              <label htmlFor="phone">Telefoon:</label>
-              <input type="tel" id="phone" className="input" />
-
-              <label htmlFor="message">Bericht:</label>
-              <textarea id="message" className="input" rows="4"></textarea>
-
-              <button
-                type="submit"
-                className="btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm"
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="first-name"
+                className="block text-md font-medium leading-6 text-gray-900"
               >
-                Submit
-              </button>
-            </form>
-          </div>
+                Voornaam
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  autoComplete="given-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
 
-          {/* Image */}
-          <div>
-            <img
-              className="w-full h-full object-cover rounded-lg"
-              src="https://images.unsplash.com/photo-1534398079543-7ae6d016b86a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Maintenance Image"
-            />
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="last-name"
+                className="block text-md font-medium leading-6 text-gray-900"
+              >
+                Achternaam
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  autoComplete="family-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="email"
+                className="block text-md font-medium leading-6 text-gray-900"
+              >
+                E-mailadres
+              </label>
+              <div className="mt-2">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="phone"
+                className="block text-md font-medium leading-6 text-gray-900"
+              >
+                Telefoonnummer
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  autoComplete="tel"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="col-span-full">
+              <label
+                htmlFor="maintenance-details"
+                className="block text-md font-medium leading-6 text-gray-900"
+              >
+                Onderhoudsdetails
+              </label>
+              <div className="mt-2">
+                <textarea
+                  id="maintenance-details"
+                  name="maintenance-details"
+                  rows={3}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  defaultValue={''}
+                />
+              </div>
+              <p className="mt-3 text-sm leading-6 text-gray-600">
+                Beschrijf hier de details van het benodigde onderhoud.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="mt-6 flex items-center justify-end gap-x-6">
+        <button
+          type="submit"
+          className="rounded-xl bg-blue-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Verzenden
+        </button>
+      </div>
+    </form>
   );
 }

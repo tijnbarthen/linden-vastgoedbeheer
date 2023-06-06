@@ -3,11 +3,34 @@ import Image from 'next/image';
 
 import Logo from '@/public/images/logo-linden.png';
 
+const navLinks = [
+  {
+    title: 'Home',
+    path: '/',
+  },
+  {
+    title: 'Aanbod',
+    path: '/aanbod',
+  },
+  {
+    title: 'Over ons',
+    path: '/over-ons',
+  },
+  {
+    title: 'Diensten',
+    path: '/diensten',
+  },
+  {
+    title: 'Onderhoud',
+    path: '/onderhoud',
+  },
+];
+
 export default function Footer() {
   return (
     <footer>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-8 md:py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
+        <div className="py-8 md:py-12 border-t border-gray-900/10">
           {/* Top area */}
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-12 md:mb-6">
             <div className="shrink-0 mr-4">
@@ -96,30 +119,15 @@ export default function Footer() {
             </ul> */}
             {/* Left links */}
             <div className="text-sm font-medium md:order-1 space-x-6 mb-2 md:mb-0">
-              <a
-                className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                href="#0"
-              >
-                Home
-              </a>
-              <a
-                className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                href="#0"
-              >
-                Aanbod
-              </a>
-              <a
-                className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                href="#0"
-              >
-                Over ons
-              </a>
-              <a
-                className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                href="#0"
-              >
-                Diensten
-              </a>
+              {navLinks.map((item, index) => (
+                <Link
+                  key={index}
+                  className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
+                  href="#0"
+                >
+                  {item.title}
+                </Link>
+              ))}
             </div>
           </div>
 
