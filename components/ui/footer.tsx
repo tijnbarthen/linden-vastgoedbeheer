@@ -21,15 +21,20 @@ export default function Footer() {
               </Link>
             </div>
             <form className="w-full max-w-sm">
-              <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none">
-                <input
-                  type="email"
-                  className="form-input w-full mb-2 sm:mb-0 sm:mr-2"
-                  placeholder="Your email"
-                  aria-label="Your email"
-                />
+              <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none items-center">
+                <div className="flex flex-col">
+                  <a className="mb-2 font-bold">
+                    Schrijf je in voor onze nieuwsbrief!
+                  </a>
+                  <input
+                    type="email"
+                    className="form-input w-full mb-2 sm:mb-0 sm:mr-2"
+                    placeholder="Your email"
+                    aria-label="Your email"
+                  />
+                </div>
                 <button
-                  className="btn-sm text-white bg-blue-500 hover:bg-blue-600 shadow-sm whitespace-nowrap"
+                  className="btn-sm text-white bg-blue-950 hover:bg-blue-600 shadow-sm whitespace-nowrap  ml-2 sm:h-10"
                   type="submit"
                 >
                   Inschrijven
@@ -45,7 +50,7 @@ export default function Footer() {
             {/* <ul className="inline-flex mb-4 md:order-2 md:ml-4 md:mb-0">
               <li>
                 <a
-                  className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
+                  className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-950 rounded-full transition duration-150 ease-in-out"
                   href="#0"
                   aria-label="Twitter"
                 >
@@ -60,7 +65,7 @@ export default function Footer() {
               </li>
               <li className="ml-4">
                 <a
-                  className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
+                  className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-950 rounded-full transition duration-150 ease-in-out"
                   href="#0"
                   aria-label="Github"
                 >
@@ -75,7 +80,7 @@ export default function Footer() {
               </li>
               <li className="ml-4">
                 <a
-                  className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
+                  className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-950 rounded-full transition duration-150 ease-in-out"
                   href="#0"
                   aria-label="Telegram"
                 >

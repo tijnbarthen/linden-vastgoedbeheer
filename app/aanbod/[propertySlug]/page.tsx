@@ -66,14 +66,14 @@ export default function Page() {
           <div className="flex flex-row gap-6">
             <button
               className="
-          btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm
+          btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm
 					"
             >
               Bezichtiging
             </button>
             <button
               className="
-          btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm
+          btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm
 					"
             >
               Contact

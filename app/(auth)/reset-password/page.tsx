@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Reset Password - Creative',
   description: 'Page description',
-}
+};
 
 export default function ResetPassword() {
   return (
@@ -15,17 +15,27 @@ export default function ResetPassword() {
         <form>
           <div className="flex flex-wrap mb-4">
             <div className="w-full">
-              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="email">
+              <label
+                className="block text-gray-500 text-sm font-medium mb-1"
+                htmlFor="email"
+              >
                 Email
               </label>
-              <input id="email" type="email" className="form-input w-full text-gray-800" required />
+              <input
+                id="email"
+                type="email"
+                className="form-input w-full text-gray-800"
+                required
+              />
             </div>
           </div>
           <div className="text-right">
-            <button className="btn-sm text-white bg-blue-500 hover:bg-blue-600 shadow-sm">Reset Password</button>
+            <button className="btn-sm text-white bg-blue-950 hover:bg-blue-600 shadow-sm">
+              Reset Password
+            </button>
           </div>
         </form>
-      </div>    
+      </div>
     </>
-  )
+  );
 }

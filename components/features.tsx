@@ -41,11 +41,11 @@ export default function Features() {
   );
 
   return (
-    <section>
+    <section className="bg-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
         <div className="py-12 md:py-20">
           <div className="pb-12 md:pb-20">
-            <h2 className="h2 font-cabinet-grotesk text-center">
+            <h2 className="h2 font-cabinet-grotesk text-center  text-blue-950">
               Wat doen we allemaal?
             </h2>
           </div>
@@ -77,10 +77,10 @@ export default function Features() {
 const FeatureItem = ({ item }: { item: any }) => {
   return (
     <li>
-      <div className="text-2xl font-cabinet-grotesk font-bold text-gray-700 mb-2">
+      <div className="text-2xl font-cabinet-grotesk font-bold text-blue-950 mb-2">
         {item.title}
       </div>
-      <div className="text-gray-500">{item.content}</div>
+      <div className=" text-blue-950">{item.content}</div>
     </li>
   );
 };

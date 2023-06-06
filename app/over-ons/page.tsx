@@ -4,7 +4,7 @@ export default function Page() {
   // container max-w-6xl mx-auto px-4 md:px-6 md:flex items-start justify-between sm:py-5 md:py-10
   return (
     <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
-      <div className="text-center md:py-28 py-14 bg-indigo-200 text-white">
+      <div className="text-center md:py-28 py-14 bg-blue-950 text-white">
         <h1 className="h1 text-5xl font-bold ">Over Ons</h1>
       </div>
       <div className="container max-w-6xl mx-auto md:py-24 md:px-6 py-9 px-4">
@@ -33,7 +33,7 @@ export default function Page() {
               </ul>
               <button
                 className="
-          btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm mt-10
+          btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm mt-10
 					"
               >
                 Neem contact op voor persoonlijk advies
@@ -82,7 +82,7 @@ export default function Page() {
       </div>
       <div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-center mb-12 h2 font-cabinet-grotesk">
+          <h2 className="text-center mb-20 h2 font-cabinet-grotesk">
             Ons Team
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">

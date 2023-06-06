@@ -24,7 +24,7 @@ export default function Home() {
       {/* <Creatives /> */}
       {/* <Pricing /> */}
       <Testimonials />
-      <Faqs />
+      {/* <Faqs /> */}
       {/* <Blog /> */}
       <Cta />
     </>

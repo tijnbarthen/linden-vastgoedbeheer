@@ -1,37 +1,9 @@
 import Link from 'next/link';
-
-const Card = ({ house }: { house: any }) => {
-  return (
-    <Link href="/aanbod/[id]" as={`/aanbod/${house.id}`}>
-      <div className="flex flex-col rounded-lg shadow-lg bg-white cursor-pointer">
-        <img
-          className="w-full h-56 object-cover rounded-lg"
-          src={house.image}
-          alt={house.title}
-        />
-        <div className="flex flex-col justify-between flex-grow">
-          <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2 font-cabinet-grotesk text-black">
-              {house.title}
-            </div>
-            <p className="text-gray-700 text-base">{house.description}</p>
-          </div>
-          <div className="px-6 py-4">
-            <span className="inline-block bg-indigo-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2">
-              {house.price}
-            </span>
-            <span className="inline-block bg-indigo-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-2 ">
-              {house.location}
-            </span>
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-};
+import HouseCard from '@/components/organisms/HouseCard';
 
 const houses = [
   {
+    id: '1',
     image: 'https://source.unsplash.com/random?house&301',
     title: 'Moderne Villa met Uitzicht op Zee',
     description:
@@ -40,6 +12,7 @@ const houses = [
     location: 'Zandvoort, Nederland',
   },
   {
+    id: '2',
     image: 'https://source.unsplash.com/random?house&302',
     title: 'Sfeervol Cottage op het Platteland',
     description:
@@ -48,6 +21,7 @@ const houses = [
     location: 'Giethoorn, Nederland',
   },
   {
+    id: '3',
     image: 'https://source.unsplash.com/random?house&303',
     title: 'Luxe Penthouse in het Stadscentrum',
     description:
@@ -56,6 +30,7 @@ const houses = [
     location: 'Amsterdam, Nederland',
   },
   {
+    id: '4',
     image: 'https://source.unsplash.com/random?house&304',
     title: 'Ruime Gezinswoning met Tuin',
     description:
@@ -64,20 +39,24 @@ const houses = [
     location: 'Den Haag, Nederland',
   },
   {
+    id: '5',
     image: 'https://source.unsplash.com/random?house&305',
     title: 'Modern Loft in de Binnenstad',
     description:
       'Woon in het hart van de bruisende binnenstad in dit stijlvolle en moderne loft. Open plattegrond met hoge plafonds en moderne afwerking.',
     price: '€800.000',
     location: 'Rotterdam, Nederland',
+    status: 'Verkocht',
   },
   {
+    id: '6',
     image: 'https://source.unsplash.com/random?house&306',
     title: 'Afgelegen Bergchalet',
     description:
       'Ontsnap naar een afgelegen bergchalet, omgeven door natuur. Rustieke charme gecombineerd met moderne gemakken in deze rustgevende vakantiebestemming.',
     price: '€450.000',
     location: 'Valkenburg, Nederland',
+    status: 'Verkocht',
   },
 ];
 
@@ -85,13 +64,13 @@ export default function Page() {
   return (
     <>
       <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
-        <div className="text-center py-28 bg-indigo-200 text-white">
+        <div className="text-center py-28 bg-blue-950 text-white">
           <h1 className="h1 text-5xl font-bold ">Ons aanbod</h1>
         </div>
-        <div className="container max-w-6xl mx-auto sm:px-6 md:px-8">
+        <div className="container max-w-6xl mx-auto md:py-24 md:px-6 py-5 px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
-            {houses.map((house, index) => (
-              <Card key={index} house={house} />
+            {houses.map((house) => (
+              <HouseCard key={house.id} house={house} />
             ))}
           </div>
         </div>

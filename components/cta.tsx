@@ -9,7 +9,7 @@ export default function Cta() {
           <div className="relative py-12 px-8 md:py-20 md:px-12">
             {/* Dark box */}
             <div
-              className="absolute inset-0 bg-gray-800 -rotate-2 -z-10"
+              className="absolute inset-0 bg-blue-950 -rotate-1 -z-10"
               aria-hidden="true"
             />
             <div className="flex flex-col lg:flex-row justify-between items-center">
@@ -27,7 +27,7 @@ export default function Cta() {
                     fillRule="evenodd"
                   />
                 </svg>
-                <h3 className="h2 font-cabinet-grotesk text-gray-100">
+                <h3 className="h3 font-cabinet-grotesk text-gray-100">
                   <span className="underline">Altijd up-to-date</span> <br></br>{' '}
                   Ontvang e-mailmeldingen voor nieuwe woningen. Geen abonnement,
                   alleen eenmalige betaling.
@@ -36,7 +36,7 @@ export default function Cta() {
               {/* CTA button */}
               <div className="shrink-0">
                 <Link
-                  className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm"
+                  className="btn text-white text-bold border-white border-2 hover:bg-blue-600 w-full shadow-sm"
                   href="/signup"
                 >
                   Voor maar € 20,-
