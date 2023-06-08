@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Home - Creative',
-  description: 'Page description',
+  title: 'Linden Vastgoed',
+  description: 'Beheer en verhuur van vastgoed in Amsterdam',
 };
 
 import Hero from '@/components/hero';
