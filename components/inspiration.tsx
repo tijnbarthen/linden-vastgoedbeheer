@@ -27,7 +27,7 @@ export default function Inspiration() {
                   fillRule="evenodd"
                 />
               </svg>
-              <h2 className="h2 font-cabinet-grotesk">Ons portfolio</h2>
+              <h2 className="h2  font-cabinet-grotesk">Ons portfolio</h2>
             </div>
           </div>
           {/* Content */}

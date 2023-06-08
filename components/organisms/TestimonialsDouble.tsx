@@ -2,7 +2,7 @@ export default function TestimonialsDouble() {
   return (
     <section className=" max-w-6xl mx-auto py-12  px-6 bg-white">
       <div className="max-w-3xl mx-auto text-center pb-12">
-        <h2 className="text-3xl font-semibold leading-9 text-gray-900">
+        <h2 className="text-3xl font-semibold leading-9 text-gray-900 font-cabinet-grotesk">
           Wat klanten over ons zeggen
         </h2>
         <p className="mt-4 text-lg leading-7 text-gray-500">
@@ -32,9 +32,9 @@ export default function TestimonialsDouble() {
                 />
                 <div className="text-base">
                   <div className="font-semibold text-gray-900">
-                    Judith Black
+                    Sophie Brier
                   </div>
-                  <div className="mt-1 text-gray-500">CEO of Tuple</div>
+                  <div className="mt-1 text-gray-500"></div>
                 </div>
               </figcaption>
             </figure>
@@ -56,10 +56,8 @@ export default function TestimonialsDouble() {
                   alt=""
                 />
                 <div className="text-base">
-                  <div className="font-semibold text-gray-900">
-                    Joseph Rodriguez
-                  </div>
-                  <div className="mt-1 text-gray-500">CEO of Reform</div>
+                  <div className="font-semibold text-gray-900">Bob Smith</div>
+                  <div className="mt-1 text-gray-500"></div>
                 </div>
               </figcaption>
             </figure>

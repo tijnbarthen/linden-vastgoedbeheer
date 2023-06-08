@@ -6,9 +6,9 @@ export default function Page() {
       <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
         <Header title="Diensten" />
         <div className="container max-w-6xl mx-auto md:px-6 py-6 px-4">
-          <div className="flex flex-col lg:flex-row justify-between gap-8">
-            <div className="w-full lg:w-6/12 flex flex-col justify-center">
-              <h1 className="h2 font-cabinet-grotesk  text-left mb-6 leading-9 text-gray-800 pb-4">
+          <div className="flex flex-col sm:flex-row justify-between ">
+            <div className="w-full lg:w-6/12 flex flex-col justify-center md:px-3 mb-6 ">
+              <h1 className="h2 font-cabinet-grotesk  text-left leading-9 text-gray-800 pb-4">
                 Verhuur
               </h1>
               <div>
@@ -32,9 +32,9 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="container max-w-6xl mx-auto md:px-6 px-4">
-          <div className="flex flex-col lg:flex-row-reverse justify-between gap-8">
-            <div className="w-full lg:w-6/12 flex flex-col justify-center">
+        <div className="container max-w-6xl mx-auto px-4 md:px-6 pb-6">
+          <div className="flex flex-col sm:flex-row-reverse justify-between">
+            <div className="w-full lg:w-6/12 flex flex-col justify-center md:px-6 sm:px-4 mb-6">
               <h1 className="h2 font-cabinet-grotesk  text-left mb-6 leading-9 text-gray-800 pb-4">
                 Beheer
               </h1>
@@ -45,8 +45,7 @@ export default function Page() {
                   <li>Servicegericht</li>
                 </ul>
                 <button
-                  className="
-          btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm mt-10
+                  className="rounded-xl mt-4 bg-blue-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
 					"
                 >
                   Contact voor meer informatie

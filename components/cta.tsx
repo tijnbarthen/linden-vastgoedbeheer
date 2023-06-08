@@ -9,7 +9,7 @@ export default function Cta() {
           <div className="relative py-12 px-8 md:py-20 md:px-12">
             {/* Dark box */}
             <div
-              className="absolute inset-0 bg-blue-950 -rotate-1 -z-10"
+              className="absolute inset-0 bg-blue-950 -z-10 rounded-lg"
               aria-hidden="true"
             />
             <div className="flex flex-col lg:flex-row justify-between items-center">

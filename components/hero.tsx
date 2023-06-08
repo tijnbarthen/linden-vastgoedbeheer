@@ -8,22 +8,22 @@ export default function Hero() {
     <section className="relative">
       {/* Bg */}
       <div
-        className="absolute inset-0 rounded-bl-[100px] bg-blue-950 pointer-events-none -z-10"
+        className="absolute inset-0 rounded-b-xl bg-blue-950 pointer-events-none -z-10"
         aria-hidden="true"
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+        <div className="pt-32 pb-12 md:pt-40 md:pb-20 flex justify-center">
           {/* Hero content */}
-          <div className="relative max-w-xl mx-auto md:max-w-none text-center md:text-left flex flex-col md:flex-row">
+          <div className="relative max-w-xl mx-auto md:max-w-none text-center flex flex-col md:flex-row">
             {/* Content */}
             <div className="md:w-[640px]">
               <h1
-                className="h1 font-cabinet-grotesk mb-6 text-2xl sm:text-3xl md:text-4xl text-white lg:text-5xl xl:text-6xl aos-init aos-animate"
+                className="h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl text-white lg:text-5xl xl:text-6xl aos-init aos-animate"
                 data-aos="fade-right"
                 data-aos-delay="100"
               >
                 Verhuur, verkoop
-                <span className="relative inline-flex text-blue-300 h1 font-cabinet-grotesk mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl aos-init aos-animate">
+                <span className="relative inline-flex text-blue-300 h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl aos-init aos-animate">
                   <svg
                     className="absolute left-0 top-full -mt-4 max-w-full -z-10"
                     width="220"
@@ -35,7 +35,7 @@ export default function Hero() {
                 </span>
               </h1>
               <p
-                className="text-xl text-white mb-10 aos-init aos-animate"
+                className="text-xl text-white mb-10 aos-init aos-animate font-cabinet-grotesk"
                 data-aos="fade-right"
                 data-aos-delay="200"
               >
@@ -43,7 +43,7 @@ export default function Hero() {
                 professioneel beheren.
               </p>
               <div
-                className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-20 aos-init aos-animate"
+                className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-20 aos-init aos-animate"
                 data-aos="fade-right"
                 data-aos-delay="300"
               >
@@ -68,7 +68,7 @@ export default function Hero() {
 
             {/* Image */}
             {/* Image */}
-            <div
+            {/* <div
               className="max-w-sm mx-auto md:max-w-none md:absolute md:left-[40rem] md:ml-16 lg:ml-32 xl:ml-52 mt-12 md:-mt-12a flex justify-center"
               data-aos="fade-left"
               data-aos-duration="1100"
@@ -81,7 +81,7 @@ export default function Hero() {
                 priority
                 alt="Hero Illustration"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

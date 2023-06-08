@@ -1,5 +1,7 @@
 import Header from '@/components/organisms/Header';
 import Link from 'next/link';
+import { BiPhone as PhoneIcon } from 'react-icons/bi';
+import { BiEnvelope as EnvelopeIcon } from 'react-icons/bi';
 
 export default function Page() {
   return (
@@ -9,21 +11,6 @@ export default function Page() {
     </div>
   );
 }
-
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 
 function Contact() {
   return (
@@ -45,28 +32,28 @@ function Contact() {
               <div>
                 <dt className="sr-only">Postadres</dt>
                 <dd>
-                  <p>742 Evergreen Terrace</p>
-                  <p>Springfield, OR 12345</p>
+                  <p>Leidseplein</p>
+                  <p>Amsterdam, 1234 AA</p>
                 </dd>
               </div>
               <div className="mt-6">
                 <dt className="sr-only">Telefoonnummer</dt>
                 <dd className="flex">
-                  {/* <PhoneIcon
-              className="h-6 w-6 flex-shrink-0 text-gray-400"
-              aria-hidden="true"
-            /> */}
-                  <span className="ml-3">+1 (555) 123-4567</span>
+                  <PhoneIcon
+                    className="h-6 w-6 flex-shrink-0 text-gray-400"
+                    aria-hidden="true"
+                  />
+                  <span className="ml-3">+31 6 00 00 00 00 </span>
                 </dd>
               </div>
               <div className="mt-3">
                 <dt className="sr-only">E-mail</dt>
                 <dd className="flex">
-                  {/* <EnvelopeIcon
-              className="h-6 w-6 flex-shrink-0 text-gray-400"
-              aria-hidden="true"
-            /> */}
-                  <span className="ml-3">support@example.com</span>
+                  <EnvelopeIcon
+                    className="h-6 w-6 flex-shrink-0 text-gray-400"
+                    aria-hidden="true"
+                  />
+                  <span className="ml-3">support@lindenvastgoed.nl</span>
                 </dd>
               </div>
             </dl>
@@ -81,6 +68,9 @@ function Contact() {
         </div>
         <div className="bg-white px-6 py-16 lg:col-span-3 lg:px-8 lg:py-24 xl:pl-12">
           <div className="mx-auto max-w-lg lg:max-w-none">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl mb-2">
+              Stuur ons een bericht
+            </h2>
             <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
               <div>
                 <label htmlFor="full-name" className="sr-only">
@@ -137,7 +127,7 @@ function Contact() {
               <div>
                 <button
                   type="submit"
-                  className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="inline-flex justify-center border border-transparent btn-sm text-white bg-blue-950 hover:bg-blue-600 shadow-sm whitespace-nowrap  ml-2 sm:h-10 px-6 py-3 text-base font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Verzenden
                 </button>

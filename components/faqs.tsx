@@ -35,9 +35,9 @@ export default function Faqs() {
   const firstColumnItems = FaqItems.slice(0, Math.ceil(FaqItems.length / 2));
   const secondColumnItems = FaqItems.slice(Math.ceil(FaqItems.length / 2));
   return (
-    <section className="bg-slate-400 mb-10">
+    <section className="bg-slate-400 mb-6">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20 border-b border-gray-100">
+        <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="pb-12 md:pb-20">
             <h2 className="h2 font-3xl">Veelgestelde vragen</h2>

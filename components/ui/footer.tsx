@@ -24,6 +24,10 @@ const navLinks = [
     title: 'Onderhoud',
     path: '/onderhoud',
   },
+  {
+    title: 'Contact',
+    path: '/contact',
+  },
 ];
 
 export default function Footer() {
@@ -43,7 +47,7 @@ export default function Footer() {
                 <Image src={Logo} width={200} height={120} alt="logo" />
               </Link>
             </div>
-            <form className="w-full max-w-sm">
+            {/* <form className="w-full max-w-sm">
               <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none items-center">
                 <div className="flex flex-col">
                   <a className="mb-2 font-bold">
@@ -63,9 +67,7 @@ export default function Footer() {
                   Inschrijven
                 </button>
               </div>
-              {/* Success message */}
-              {/* <p class="font-medium text-emerald-600 text-center sm:text-left sm:absolute mt-2 opacity-75 text-sm">Thanks for subscribing!</p> */}
-            </form>
+            </form> */}
           </div>
           {/* Bottom area */}
           <div className="text-center md:flex md:items-center md:justify-between mb-8 md:mb-6">
@@ -123,7 +125,7 @@ export default function Footer() {
                 <Link
                   key={index}
                   className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                  href="#0"
+                  href={item.path}
                 >
                   {item.title}
                 </Link>

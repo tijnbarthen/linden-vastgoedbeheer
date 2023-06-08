@@ -58,12 +58,6 @@ export default function Page() {
       <ChangeInRealEstate />
       <TeamSection />
       <Faqs />
-      <Container>
-        <h2>Hoi</h2>
-      </Container>
-      <ContainerFull bg={'bg-slate-100'}>
-        <h2>Hoi</h2>
-      </ContainerFull>
     </div>
   );
 }

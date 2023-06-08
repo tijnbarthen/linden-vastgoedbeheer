@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
 interface House {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  price: string;
-  location: string;
-  status: string;
+  id?: string;
+  image?: string;
+  title?: string;
+  description?: string;
+  price?: string;
+  location?: string;
+  status?: string;
 }
 
 interface CardProps {

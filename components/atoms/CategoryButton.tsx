@@ -2,6 +2,10 @@ export default function CategoryButton({
   category,
   setCategory,
   selectedCategory,
+}: {
+  category: any;
+  setCategory: any;
+  selectedCategory: any;
 }) {
   return (
     <button

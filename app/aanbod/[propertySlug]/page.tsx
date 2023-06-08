@@ -3,14 +3,15 @@
 import Container from '@/components/organisms/Container';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Swipeable } from 'react-swipeable';
 import { useState } from 'react';
+import { IoBedOutline } from 'react-icons/io5';
+import { BiBath } from 'react-icons/bi';
 
 export default function Page() {
   return (
-    <div className="bg-slate-100">
-      <div className="container max-w-6xl mx-auto px-4 md:px-6 md:flex items-start justify-between py-6 gap-6">
-        <div className="block py-10 md:py-0">
+    <div className="bg-white">
+      <div className="container max-w-6xl mx-auto px-6 lg:flex items-start justify-between py-6 gap-6">
+        <div className="block md:py-0 lg:w-1/2 xl:w-3/5">
           <Carousel
             infiniteLoop={true}
             showIndicators={false}
@@ -55,7 +56,7 @@ export default function Page() {
             </div>
           </Carousel>
         </div>
-        <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
+        <div className="xl:w-2/5 lg:w-1/2  mt-6 lg:mt-0">
           <div className="pb-6">
             <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
               Beschikbaar
@@ -76,6 +77,33 @@ export default function Page() {
             <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
               Huur € 1.500,- per maand
             </p>
+          </div>
+          <div className="flex flex-row mb-5 gap-4 ">
+            <div className="flex flex-row gap-2 items-center">
+              <IoBedOutline className="text-blue-950" size={20} />
+              <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                1
+              </p>
+            </div>
+            <div className="flex flex-row gap-2 items-center">
+              <BiBath className="text-blue-950" size={20} />
+              <p className="ttext-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                1
+              </p>
+            </div>
+            <div className="flex flex-row gap-2 items-center">
+              <span
+                className=" text-blue-950 border border-blue-950 text-sm"
+                style={{
+                  padding: '0 4px',
+                }}
+              >
+                M²
+              </span>
+              <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                62
+              </p>
+            </div>
           </div>
           <div className="flex flex-row gap-6">
             <button
@@ -151,143 +179,190 @@ function RentalProposalForm() {
   const [numberOfTenants, setNumberOfTenants] = useState(1);
   const [agreementConfirmation, setAgreementConfirmation] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     // Voeg hier de logica toe om het formulier te verwerken
   };
 
   return (
-    <form
-      className="max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4"
-      onSubmit={handleSubmit}
-    >
-      <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-3xl font-semibold leading-7 text-gray-900">
-            Huur voorstel
-          </h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
-            Javastraat
-            <br />
-            Beantwoord onderstaande vragen, zodat we jouw voorstel zo snel
-            mogelijk kunnen verwerken.
-          </p>
+    <div className="bg-slate-100 my-6">
+      <form
+        className="max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4"
+        onSubmit={handleSubmit}
+      >
+        <div className="space-y-12">
+          <div className="pb-12 flex justify-center flex-col items-center">
+            <h2 className="text-3xl font-semibold leading-7 text-gray-900 font-cabinet-grotesk">
+              Huur voorstel voor
+            </h2>
+            <h2 className="text-3xl font-semibold leading-7 text-gray-900 font-cabinet-grotesk">
+              Javastraat
+            </h2>
+            <p className="mt-6 font-cabinet-grotesk  md:w-[400px]">
+              Beantwoord onderstaande vragen, zodat we jouw voorstel zo snel
+              mogelijk kunnen verwerken.
+            </p>
+            <div className="space-y-8 mt-10">
+              <div>
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Adres
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="address"
+                    name="address"
+                    type="text"
+                    autoComplete="street-address"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
 
-          <label className="mt-8">
-            Adres:
-            <input
-              type="text"
-              value="Javastraat"
-              readOnly
-              className="input-field"
-            />
-          </label>
+              <div>
+                <label
+                  htmlFor="rent"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Huurprijs
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="rent"
+                    name="rent"
+                    type="text"
+                    disabled
+                    value="€1.000"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 bg-gray-100 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
 
-          <label className="mt-4">
-            Huur:
-            <input
-              type="text"
-              value="€ 2750 /maand"
-              readOnly
-              className="input-field"
-            />
-          </label>
+              <div>
+                <label
+                  htmlFor="offer"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Doe een aanbod
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="offer"
+                    name="offer"
+                    type="number"
+                    value="1000"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
 
-          <label className="mt-4">
-            Doe hier uw bod:
-            <input
-              type="text"
-              value={offer}
-              onChange={(e) => setOffer(e.target.value)}
-              placeholder="€/maand"
-              className="input-field"
-            />
-          </label>
+              <div>
+                <label
+                  htmlFor="start-date"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Start Huurperiode
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="start-date"
+                    name="start-date"
+                    type="date"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
 
-          <label className="mt-4">
-            Start huurovereenkomst:
-            <input
-              type="text"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              placeholder="1 augustus 2023"
-              className="input-field"
-            />
-          </label>
+              <div>
+                <label
+                  htmlFor="guarantee"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Borg
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="guarantee"
+                    name="guarantee"
+                    type="text"
+                    disabled
+                    value={'€' + 1000 * 2}
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
 
-          <label className="mt-4">
-            Waarborg:
-            <input
-              type="text"
-              value="2 maanden huur"
-              readOnly
-              className="input-field"
-            />
-          </label>
+              <div>
+                <label
+                  htmlFor="renters"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Aantal Huurders
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="renters"
+                    name="renters"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>+5</option>
+                  </select>
+                </div>
+              </div>
 
-          <p>
-            Indien uw inkomen of het inkomen van uw garantsteller niet in
-            Nederland is genoten of indien u ondernemer bent, is de vereiste
-            waarborgsom gelijk aan 4 maanden huur.
-          </p>
+              <div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    {/* <LockClosedIcon
+                      className="h-5 w-5 text-indigo-600"
+                      aria-hidden="true"
+                    /> */}
+                  </div>
+                  <div className=" text-sm leading-6">
+                    <div className="flex flex-row items-center">
+                      <div className="mr-2">
+                        <input
+                          id="privacy"
+                          name="privacy"
+                          type="checkbox"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <label
+                        htmlFor="privacy"
+                        className="font-medium text-gray-900"
+                      >
+                        Bevestig Privacy
+                      </label>
+                    </div>
 
-          <p>
-            Belangrijke informatie:
-            <br />
-            Gestoffeerd
-            <br />
-            Huur exclusief; gas, licht, water, internet en tv.
-            <br />
-            Soort contract - 2 jaar (type B)
-            <br />
-            Inschrijving voor max. 2 personen
-            <br />
-            Woningdelen is niet toegestaan
-            <br />
-            Huisdieren zijn toegestaan op aanvraag (1 maand extra borg)
-          </p>
+                    <p className="text-gray-500">
+                      Ik bevestig dat ik de privacy policy heb gelezen en ermee
+                      akkoord ga.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-          <label className="mt-4">
-            Selecteer het aantal huurders:
-            <select
-              value={numberOfTenants}
-              onChange={(e) => setNumberOfTenants(Number(e.target.value))}
-              className="input-field"
-            >
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-            </select>
-          </label>
-
-          <label className="mt-4">
-            <input
-              type="checkbox"
-              checked={agreementConfirmation}
-              onChange={(e) => setAgreementConfirmation(e.target.checked)}
-            />
-            Ik bevestig dat alle hierboven verstrekte informatie correct en
-            definitief is.
-          </label>
-
-          <p>
-            Onvolledige aanvragen zonder de vereiste documenten worden niet in
-            behandeling genomen.
-          </p>
-          <p>
-            Uw gegevens worden vertrouwelijk behandeld en worden automatisch
-            gewist nadat de aanvraag is beoordeeld.
-          </p>
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Versturen
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button
-          type="submit"
-          className="rounded-xl bg-blue-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Verzenden
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
