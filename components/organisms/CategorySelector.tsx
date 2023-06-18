@@ -25,7 +25,7 @@ export default function CategorySelector() {
 
   return (
     <div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center mb-6">
         {categories.map((category) => (
           <CategoryButton
             key={category.id}

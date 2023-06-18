@@ -17,8 +17,8 @@ const navLinks = [
     path: '/over-ons',
   },
   {
-    title: 'Diensten',
-    path: '/diensten',
+    title: 'Vastgoedeigenaren',
+    path: '/vastgoedeigenaren',
   },
   {
     title: 'Onderhoud',

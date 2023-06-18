@@ -22,7 +22,7 @@ export default function Hero() {
                 data-aos="fade-right"
                 data-aos-delay="100"
               >
-                Verhuur, verkoop
+                Verhuur, verduurzaming, verkoop,
                 <span className="relative inline-flex text-blue-300 h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl aos-init aos-animate">
                   <svg
                     className="absolute left-0 top-full -mt-4 max-w-full -z-10"

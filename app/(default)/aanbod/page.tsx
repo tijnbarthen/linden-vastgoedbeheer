@@ -61,7 +61,29 @@ const houses = [
   },
 ];
 
+async function fetchHouses() {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
+  if (!res.ok) {
+    throw new Error('Something went wrong');
+  }
+
+  const data = await res.json();
+
+  return data;
+}
+
 export default function Page() {
+  const data = fetchHouses();
+
   return (
     <>
       <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
