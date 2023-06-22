@@ -1,94 +1,100 @@
-'use client';
-
 import Container from '@/components/organisms/Container';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { IoBedOutline } from 'react-icons/io5';
 import { BiBath } from 'react-icons/bi';
+import ImageComponent from '@/components/organisms/ImageComponent';
+import axios from 'axios';
 
-export default function Page() {
+export async function generateStaticParams() {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
+  if (!res.ok) {
+    throw new Error('Something went wrong');
+  }
+
+  const data = await res.json();
+
+  return data.records.map((house: any) => ({
+    propertySlug: house.fields.RECORD_ID,
+  }));
+}
+
+const getHouseData = async (propertySlug: string) => {
+  // console.log('propertySlug', propertySlug);
+  const res = await axios.get(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      params: {
+        filterByFormula: `{RECORD_ID} = "${propertySlug}"`,
+      },
+    },
+  );
+
+  const data = await res.data;
+
+  return data.records[0];
+};
+
+export default async function Page({ params }: { params: any }) {
+  const { propertySlug } = params;
+
+  const data = await getHouseData(propertySlug);
+
+  const { fields } = data;
+
   return (
     <div className="bg-white">
       <div className="container max-w-6xl mx-auto px-6 lg:flex items-start justify-between py-6 gap-6">
         <div className="block md:py-0 lg:w-1/2 xl:w-3/5">
-          <Carousel
-            infiniteLoop={true}
-            showIndicators={false}
-            autoPlay
-            interval={5000}
-            showThumbs={false}
-          >
-            <div>
-              <img
-                className="w-full"
-                alt="img of a girl posing"
-                src="https://source.unsplash.com/random?house%20amsterdam"
-              />
-            </div>
-            <div>
-              <img
-                className="w-full"
-                alt="img-tag-one"
-                src="https://source.unsplash.com/random?house%20amsterdam"
-              />
-            </div>
-            <div>
-              <img
-                className="w-full"
-                alt="img-tag-one"
-                src="https://source.unsplash.com/random?house%20amsterdam"
-              />
-            </div>
-            <div>
-              <img
-                className="w-full"
-                alt="img-tag-one"
-                src="https://source.unsplash.com/random?house%20amsterdam"
-              />
-            </div>
-            <div>
-              <img
-                className="w-full"
-                alt="img-tag-one"
-                src="https://source.unsplash.com/random?house%20amsterdam"
-              />
-            </div>
-          </Carousel>
+          <ImageComponent images={fields['Photos']} />
         </div>
         <div className="xl:w-2/5 lg:w-1/2  mt-6 lg:mt-0">
           <div className="pb-6">
             <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-              Beschikbaar
+              {fields.Status}
             </span>
             <h1
               className="
-							lg:text-2xl
-							text-xl
-							font-semibold
-							lg:leading-6
-							leading-7
-							text-gray-800
-							mt-2
-						"
+    					lg:text-2xl
+    					text-xl
+    					font-semibold
+    					lg:leading-6
+    					leading-7
+    					text-gray-800
+    					mt-2
+    				"
             >
-              Rietwijkerstraat 42-1
+              {fields.Naam}
             </h1>
             <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
-              Huur € 1.500,- per maand
+              €{fields.Huursom}
             </p>
           </div>
           <div className="flex flex-row mb-5 gap-4 ">
             <div className="flex flex-row gap-2 items-center">
               <IoBedOutline className="text-blue-950" size={20} />
               <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                1
+                {fields.Slaapkamers}
               </p>
             </div>
             <div className="flex flex-row gap-2 items-center">
               <BiBath className="text-blue-950" size={20} />
               <p className="ttext-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                1
+                {fields.Badkamers}
               </p>
             </div>
             <div className="flex flex-row gap-2 items-center">
@@ -101,7 +107,7 @@ export default function Page() {
                 M²
               </span>
               <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                62
+                {fields['M2']}
               </p>
             </div>
           </div>
@@ -109,37 +115,34 @@ export default function Page() {
             <button
               className="
           btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm
-					"
+    			"
             >
               Bezichtiging
             </button>
             <button
               className="
           btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm
-					"
+    			"
             >
               Contact
             </button>
           </div>
           <div>
             <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">
-              Smaakvol gemeubileerd één-slaapkamer appartement van 62 m² gelegen
-              op de 1e verdieping, met een heerlijk balkon. Het appartement is
-              beschikbaar per 1 juni 2023. Het vereiste bruto jaarinkomen is 85
-              K. Studenten zijn niet toegestaan.
+              {fields.Omschrijving}
             </p>
           </div>
         </div>
       </div>
-      <Container>
+      {/* <Container>
         <h2
           className="lg:text-2xl
-							text-xl
-							font-semibold
-							lg:leading-6
-							leading-7
-							text-gray-800
-							mt-5"
+    					text-xl
+    					font-semibold
+    					lg:leading-6
+    					leading-7
+    					text-gray-800
+    					mt-5"
         >
           Beschrijving
         </h2>
@@ -167,17 +170,17 @@ export default function Page() {
         <p className="text-base leading-4 mt-4 text-gray-600">
           Roken: strikt verboden
         </p>
-      </Container>
-      <RentalProposalForm />
+      </Container> */}
+      <RentalProposalForm house={fields} />
     </div>
   );
 }
 
-function RentalProposalForm() {
-  const [offer, setOffer] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [numberOfTenants, setNumberOfTenants] = useState(1);
-  const [agreementConfirmation, setAgreementConfirmation] = useState(false);
+function RentalProposalForm({ house }: { house: any }) {
+  // const [offer, setOffer] = useState('');
+  // const [startDate, setStartDate] = useState('');
+  // const [numberOfTenants, setNumberOfTenants] = useState(1);
+  // const [agreementConfirmation, setAgreementConfirmation] = useState(false);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -188,7 +191,7 @@ function RentalProposalForm() {
     <div className="bg-slate-100 my-6">
       <form
         className="max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4"
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
       >
         <div className="space-y-12">
           <div className="pb-12 flex justify-center flex-col items-center">
@@ -196,7 +199,7 @@ function RentalProposalForm() {
               Huur voorstel voor
             </h2>
             <h2 className="text-3xl font-semibold leading-7 text-gray-900 font-cabinet-grotesk">
-              Javastraat
+              {house.Naam}
             </h2>
             <p className="mt-6 font-cabinet-grotesk  md:w-[400px]">
               Beantwoord onderstaande vragen, zodat we jouw voorstel zo snel
@@ -234,7 +237,6 @@ function RentalProposalForm() {
                     name="rent"
                     type="text"
                     disabled
-                    value="€1.000"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 bg-gray-100 sm:text-sm sm:leading-6"
                   />
                 </div>

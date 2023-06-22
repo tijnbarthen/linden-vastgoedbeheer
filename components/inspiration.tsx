@@ -21,7 +21,7 @@ export default function Inspiration() {
           </div>
           {/* Content */}
           <CategorySelector />
-          <div>
+          {/* <div>
             <div className="flex flex-wrap">
               <div className="w-full sm:w-1/2 md:w-1/3 p-2">
                 <HouseCard
@@ -72,7 +72,7 @@ export default function Inspiration() {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div>{/* Category buttons */}</div>
         </div>

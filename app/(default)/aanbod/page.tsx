@@ -2,68 +2,9 @@ import Link from 'next/link';
 import HouseCard from '@/components/organisms/HouseCard';
 import Header from '@/components/organisms/Header';
 
-const houses = [
-  {
-    id: '1',
-    image: 'https://source.unsplash.com/random?house&301',
-    title: 'Moderne Villa met Uitzicht op Zee',
-    description:
-      'Prachtige moderne villa met adembenemend uitzicht op zee. Voorzien van ruime kamers, hoogwaardige afwerking en een privézwembad.',
-    price: '€1.200.000',
-    location: 'Zandvoort, Nederland',
-  },
-  {
-    id: '2',
-    image: 'https://source.unsplash.com/random?house&302',
-    title: 'Sfeervol Cottage op het Platteland',
-    description:
-      'Een gezellig en sfeervol cottage, gelegen in het pittoreske platteland. Geniet van een rustige omgeving en een prachtige tuin.',
-    price: '€350.000',
-    location: 'Giethoorn, Nederland',
-  },
-  {
-    id: '3',
-    image: 'https://source.unsplash.com/random?house&303',
-    title: 'Luxe Penthouse in het Stadscentrum',
-    description:
-      'Ervaar het stadsleven op zijn best in dit luxe penthouse. Geniet van een panoramisch uitzicht op de stad en eersteklas voorzieningen.',
-    price: '€2.500.000',
-    location: 'Amsterdam, Nederland',
-  },
-  {
-    id: '4',
-    image: 'https://source.unsplash.com/random?house&304',
-    title: 'Ruime Gezinswoning met Tuin',
-    description:
-      'Een perfecte gezinswoning met veel ruimte en een prachtige tuin. Voorzien van meerdere slaapkamers, een grote keuken en een gezellige woonkamer.',
-    price: '€650.000',
-    location: 'Den Haag, Nederland',
-  },
-  {
-    id: '5',
-    image: 'https://source.unsplash.com/random?house&305',
-    title: 'Modern Loft in de Binnenstad',
-    description:
-      'Woon in het hart van de bruisende binnenstad in dit stijlvolle en moderne loft. Open plattegrond met hoge plafonds en moderne afwerking.',
-    price: '€800.000',
-    location: 'Rotterdam, Nederland',
-    status: 'Verkocht',
-  },
-  {
-    id: '6',
-    image: 'https://source.unsplash.com/random?house&306',
-    title: 'Afgelegen Bergchalet',
-    description:
-      'Ontsnap naar een afgelegen bergchalet, omgeven door natuur. Rustieke charme gecombineerd met moderne gemakken in deze rustgevende vakantiebestemming.',
-    price: '€450.000',
-    location: 'Valkenburg, Nederland',
-    status: 'Verkocht',
-  },
-];
-
 async function fetchHouses() {
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/`,
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`,
     {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
@@ -78,11 +19,13 @@ async function fetchHouses() {
 
   const data = await res.json();
 
-  return data;
+  const { records } = data;
+
+  return records;
 }
 
-export default function Page() {
-  const data = fetchHouses();
+export default async function Page() {
+  const data = await fetchHouses();
 
   return (
     <>
@@ -90,7 +33,7 @@ export default function Page() {
         <Header title="Aanbod" />
         <div className="container max-w-6xl mx-auto py-6  px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {houses.map((house) => (
+            {data.map((house: any) => (
               <HouseCard key={house.id} house={house} />
             ))}
           </div>
