@@ -4,7 +4,7 @@ import Link from 'next/link';
 interface House {
   fields: {
     id?: string;
-    Photos?: [];
+    Photos?: Array<any>;
     Naam?: string;
     Omschrijving?: string;
     Huursom?: string;

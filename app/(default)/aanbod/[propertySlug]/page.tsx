@@ -5,7 +5,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { IoBedOutline } from 'react-icons/io5';
 import { BiBath } from 'react-icons/bi';
 import ImageComponent from '@/components/organisms/ImageComponent';
-import axios from 'axios';
 
 export async function generateStaticParams() {
   const res = await fetch(
@@ -28,23 +27,26 @@ export async function generateStaticParams() {
     propertySlug: house.fields.RECORD_ID,
   }));
 }
-
 const getHouseData = async (propertySlug: string) => {
-  // console.log('propertySlug', propertySlug);
-  const res = await axios.get(
-    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      params: {
-        filterByFormula: `{RECORD_ID} = "${propertySlug}"`,
-      },
-    },
-  );
+  const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`;
+  const headers = {
+    Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+    'Content-Type': 'application/json',
+  };
+  const params = {
+    filterByFormula: `{RECORD_ID} = "${propertySlug}"`,
+  };
 
-  const data = await res.data;
+  const queryString = new URLSearchParams(params).toString();
+  const fullUrl = `${url}?${queryString}`;
+
+  const res = await fetch(fullUrl, { headers });
+
+  if (!res.ok) {
+    throw new Error('Something went wrong');
+  }
+
+  const data = await res.json();
 
   return data.records[0];
 };
