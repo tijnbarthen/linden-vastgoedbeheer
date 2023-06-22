@@ -42,9 +42,9 @@ const getHouseData = async (propertySlug: string) => {
 
   const res = await fetch(fullUrl, { headers });
 
-  if (!res.ok) {
-    throw new Error('Something went wrong');
-  }
+  // if (!res.ok) {
+  //   throw new Error('Something went wrong');
+  // }
 
   const data = await res.json();
 
