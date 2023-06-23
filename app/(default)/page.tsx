@@ -14,12 +14,15 @@ import Blog from '@/components/blog';
 import Cta from '@/components/cta';
 import Features from '@/components/features';
 import TestimonialsDouble from '@/components/organisms/TestimonialsDouble';
+import { fetchHouses } from '@/utils/fetchHouses';
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetchHouses(6);
   return (
     <>
       <Hero />
-      <Inspiration />
+
+      <Inspiration data={data} />
       <Features />
       <TestimonialsDouble />
       {/* <Cta /> */}

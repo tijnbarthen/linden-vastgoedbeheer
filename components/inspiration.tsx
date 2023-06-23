@@ -1,15 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import Author01 from '@/public/images/author-01.jpg';
-import CategorySelector from '@/components/organisms/CategorySelector';
 import HouseCard from '@/components/organisms/HouseCard';
-import { fetchHouses } from '@/utils/fetchHouses';
 
-export default async function Inspiration() {
-  const data = await fetchHouses(6);
-
-  console.log(data);
-
+export default function Inspiration({ data }: { data: any }) {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
