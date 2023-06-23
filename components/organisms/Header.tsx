@@ -23,22 +23,6 @@ export default function Header({
           alt=""
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
-        <div className="absolute bottom-2 right-2 flex flex-row">
-          <svg
-            fill="white"
-            width="24"
-            height="24"
-            xmlns="http://www.w3.org/2000/svg"
-            fillRule="evenodd"
-            clipRule="evenodd"
-          >
-            <path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 11h6v1h-7v-9h1v8z" />
-          </svg>
-          <span className="ml-2 text-white font-bold ">
-            {String(d.getHours()).padStart(2, '0')}:
-            {String(d.getMinutes()).padStart(2, '0')}{' '}
-          </span>
-        </div>
         {/* <div
           className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
           aria-hidden="true"

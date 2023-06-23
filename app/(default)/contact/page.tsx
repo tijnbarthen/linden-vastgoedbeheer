@@ -57,13 +57,13 @@ function Contact() {
                 </dd>
               </div>
             </dl>
-            <p className="mt-6 text-base text-gray-500">
+            {/* <p className="mt-6 text-base text-gray-500">
               Op zoek naar carrièremogelijkheden?{' '}
               <a href="#" className="font-medium text-gray-700 underline">
                 Bekijk alle vacatures????
               </a>
               .
-            </p>
+            </p> */}
           </div>
         </div>
         <div className="bg-white px-6 py-16 lg:col-span-3 lg:px-8 lg:py-24 xl:pl-12">

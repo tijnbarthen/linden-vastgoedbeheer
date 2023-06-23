@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 
 import Link from 'next/link';
@@ -7,8 +5,13 @@ import Image from 'next/image';
 import Author01 from '@/public/images/author-01.jpg';
 import CategorySelector from '@/components/organisms/CategorySelector';
 import HouseCard from '@/components/organisms/HouseCard';
+import { fetchHouses } from '@/utils/fetchHouses';
 
-export default function Inspiration() {
+export default async function Inspiration() {
+  const data = await fetchHouses(6);
+
+  console.log(data);
+
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -18,63 +21,17 @@ export default function Inspiration() {
             <div className="relative text-center">
               <h2 className="h2  font-cabinet-grotesk">Ons portfolio</h2>
             </div>
-          </div>
-          {/* Content */}
-          <CategorySelector />
-          {/* <div>
-            <div className="flex flex-wrap">
-              <div className="w-full sm:w-1/2 md:w-1/3 p-2">
-                <HouseCard
-                  house={{
-                    id: '1',
-                    image: 'https://source.unsplash.com/random?house&303',
-                    title: 'Mooi huis',
-                    description: 'Dit is een mooi huis',
-                    price: '€ 1.000.000',
-                    location: 'Amsterdam',
-                  }}
-                />
-              </div>
-              <div className="w-full sm:w-1/2 md:w-1/3 p-2">
-                <HouseCard
-                  house={{
-                    id: '2',
-                    image: 'https://source.unsplash.com/random?house&303',
-                    title: 'Mooi huis',
-                    description: 'Dit is een mooi huis',
-                    price: '€ 1.000.000',
-                    location: 'Amsterdam',
-                  }}
-                />
-              </div>
-              <div className="w-full sm:w-1/2 md:w-1/3 p-2">
-                <HouseCard
-                  house={{
-                    id: '3',
-                    image: 'https://source.unsplash.com/random?house&303',
-                    title: 'Mooi huis',
-                    description: 'Dit is een mooi huis',
-                    price: '€ 1.000.000',
-                    location: 'Amsterdam',
-                  }}
-                />
-              </div>
-              <div className="w-full sm:w-1/2 md:w-1/3 p-2">
-                <HouseCard
-                  house={{
-                    id: '4',
-                    image: 'https://source.unsplash.com/random?house&303',
-                    title: 'Mooi huis',
-                    description: 'Dit is een mooi huis',
-                    price: '€ 1.000.000',
-                    location: 'Amsterdam',
-                  }}
-                />
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
+              {data.map((house: any) => (
+                <HouseCard key={house.id} house={house} />
+              ))}
             </div>
-          </div> */}
-
-          <div>{/* Category buttons */}</div>
+            <div className="flex justify-center mt-10">
+              <button className="bg-blue-950 text-white px-4 py-2 rounded-md">
+                Bekijk meer
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

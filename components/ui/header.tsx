@@ -24,6 +24,10 @@ const navLinks = [
     path: '/vastgoedeigenaren',
   },
   {
+    title: 'Ik ben op zoek',
+    path: '/ik-ben-op-zoek',
+  },
+  {
     title: 'Onderhoud',
     path: '/onderhoud',
   },
@@ -39,7 +43,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
 
   return (
     <header className="block w-full z-30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Site branding */}
           <div className="shrink-0 mr-4">
