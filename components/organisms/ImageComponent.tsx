@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 export default function ImageComponent({ images }: { images: any }) {
+  console.log(images);
   return (
     <div>
       <Carousel
@@ -17,7 +18,7 @@ export default function ImageComponent({ images }: { images: any }) {
           <div>
             <img
               className="w-full"
-              alt="img of a girl posing"
+              alt={`img of ${image.thumbnails.full.url}`}
               src={image.url}
               key={image.id}
               style={{
