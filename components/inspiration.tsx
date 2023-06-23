@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import Author01 from '@/public/images/author-01.jpg';
@@ -27,9 +25,11 @@ export default async function Inspiration() {
               ))}
             </div>
             <div className="flex justify-center mt-10">
-              <button className="bg-blue-950 text-white px-4 py-2 rounded-md">
-                Bekijk meer
-              </button>
+              <Link href="/aanbod">
+                <button className="bg-blue-950 text-white px-4 py-2 rounded-md">
+                  Bekijk alles
+                </button>
+              </Link>
             </div>
           </div>
         </div>

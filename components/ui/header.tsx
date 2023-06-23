@@ -25,7 +25,7 @@ const navLinks = [
   },
   {
     title: 'Ik ben op zoek',
-    path: '/ik-ben-op-zoek',
+    path: '/ik-ben-opzoek',
   },
   {
     title: 'Onderhoud',
