@@ -4,6 +4,7 @@ import Container from '@/components/organisms/Container';
 import ContainerFull from '@/components/organisms/ContainerFull';
 import Header from '@/components/organisms/Header';
 import TeamSection from '@/components/organisms/TeamSection';
+import TestimonialsDouble from '@/components/organisms/TestimonialsDouble';
 
 export default function Page() {
   // container max-w-6xl mx-auto px-4 md:px-6 md:flex items-start justify-between sm:py-5 md:py-10
@@ -15,8 +16,10 @@ export default function Page() {
       />
 
       <ChangeInRealEstate />
+
       <TeamSection />
-      <Faqs />
+      <TestimonialsDouble />
+      {/* <Faqs /> */}
     </div>
   );
 }

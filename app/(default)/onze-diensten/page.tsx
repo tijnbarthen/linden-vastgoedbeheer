@@ -1,5 +1,6 @@
 import Features from '@/components/features';
 import Header from '@/components/organisms/Header';
+import OnzeDiensten from '@/components/organisms/OnzeDiensten';
 
 // function Page() {
 //   return (
@@ -157,113 +158,12 @@ import { MdCorporateFare as MdCorporateFareIcon } from 'react-icons/md';
 import { MdSell as MdSellIcon } from 'react-icons/md';
 import { TbDoorEnter as TbDoorEnterIcon } from 'react-icons/tb';
 
-const features = [
-  {
-    name: 'Woningverhuur',
-    description:
-      'Het betreft een snelle markt waar wij ons in bevinden en spelen hier op een goede manier op in. U wilt geen leegstand en wij zorgen ervoor dat de woning in de vrije sector kan worden verhuurd en vinden op korte termijn een betrouwbare huurder.',
-    href: '#',
-    items: [
-      'Woning dezelfde dag online',
-      'Beschikbaarheid 7 dagen per week van 09:00 - 21:00',
-      'Advertenties maken',
-      'Servicegericht',
-      'Verduurzamen',
-      'Professionele screening van potentiële huurder',
-      'Inspecties en sleuteloverdracht',
-      'Geen leegstand voor verhuurders',
-      'No cure no pay',
-    ],
-    icon: TbDoorEnterIcon,
-  },
-  {
-    name: 'Bedrijfsonroerend',
-    description:
-      'Bedrijfspand, kantoorruimte of winkelpand verhuren? Wij helpen bij het maken van de volgende stap. Wat doet de markt? Voor welke prijs kun je verhuren of kunt u beter verkopen?',
-    href: '#',
-    icon: MdCorporateFareIcon,
-  },
-  {
-    name: 'Verkoop',
-    description:
-      'Onze professionals begeleiden u in het verkoopproces van uw woning. Wij komen graag bij u langs voor een kosteloos kennismakingsgesprek met waardebepaling.',
-    href: '#',
-    icon: MdSellIcon,
-  },
-  {
-    name: 'Vastgoedbeheer',
-    description:
-      'Wij beheren uw portefeuille op een betrouwbare en accuratie manier. Wij streven naar verduurzaming en daarom ook dat eigenaren die bereid zijn te investeren, dat de woning en huurders.',
-    href: '#',
-    icon: MdBusinessCenterIcon,
-  },
-  {
-    name: 'Zoekerlijst',
-    description:
-      'De zoektocht naar een woning is erg lastig tegenwoordig. Wij hebben onze eigen lijst waar de zoekopdracht in terecht komt.',
-    href: '#',
-    icon: BsSearchIcon,
-  },
-];
-
 export default function Page() {
   return (
     <>
-      <Header title="Vastgoedeigenaren" />
+      <Header title="Onze Diensten" />
       <div className="bg-white py-6">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-cabinet-grotesk">
-              Onze diensten
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600 font-cabinet-grotesk">
-              Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-              magnam voluptatum cupiditate veritatis in accusamus quisquam.
-            </p>
-          </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-              {features.map((feature) => (
-                <div key={feature.name} className="flex flex-col">
-                  <dt className="text-base font-semibold leading-7 text-gray-900">
-                    <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-950">
-                      <feature.icon
-                        className="h-6 w-6 text-white"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    {feature.name}
-                  </dt>
-                  <dd
-                    className="
-
-mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
-                  >
-                    <p className="flex-auto">{feature.description}</p>
-                    {/* <ul className="mt-6 flex flex-col gap-2 text-lg">
-                      {feature?.items?.map((item) => (
-                        <li
-                          className="text-base leading-7 text-gray-600"
-                          key={item}
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul> */}
-                    {/* <p className="mt-6">
-                      <a
-                        href={feature.href}
-                        className="text-sm font-semibold leading-6 text-blue-950"
-                      >
-                        Learn more <span aria-hidden="true">→</span>
-                      </a>
-                    </p> */}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
+        <OnzeDiensten withTitle={false} />
       </div>
     </>
   );

@@ -40,7 +40,12 @@ const getHouseData = async (propertySlug: string) => {
   const queryString = new URLSearchParams(params).toString();
   const fullUrl = `${url}?${queryString}`;
 
-  const res = await fetch(fullUrl, { headers });
+  const res = await fetch(fullUrl, {
+    headers,
+    next: {
+      revalidate: 3600,
+    },
+  });
 
   // if (!res.ok) {
   //   throw new Error('Something went wrong');

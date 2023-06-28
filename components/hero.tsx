@@ -22,7 +22,7 @@ export default function Hero() {
                 data-aos="fade-right"
                 data-aos-delay="100"
               >
-                Verhuur, verduurzaming, verkoop,
+                VERHUUR, AANHUUR,
                 <span className="relative inline-flex text-blue-300 h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl aos-init aos-animate">
                   <svg
                     className="absolute left-0 top-full -mt-4 max-w-full -z-10"
@@ -31,7 +31,7 @@ export default function Hero() {
                     viewBox="0 0 220 24"
                     xmlns="http://www.w3.org/2000/svg"
                   ></svg>
-                  vastgoedbeheer
+                  BEHEER
                 </span>
               </h1>
               <p
@@ -48,20 +48,28 @@ export default function Hero() {
                 data-aos-delay="300"
               >
                 <div>
-                  <a
+                  <Link
+                    href="/aanbod"
+                    className="btn text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm border-white border-2"
+                  >
+                    Verhuur
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    className="btn text-gray-600 bg-white hover:bg-blue-100 hover:text-blue-600 w-full shadow-sm"
+                    href="/aanhuur"
+                  >
+                    Aanhuur
+                  </Link>
+                </div>
+                <div>
+                  <Link
                     className="btn text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm border-white border-2"
                     href="/diensten"
                   >
-                    Verhuur
-                  </a>
-                </div>
-                <div>
-                  <a
-                    className="btn text-gray-600 bg-white hover:bg-blue-100 hover:text-blue-600 w-full shadow-sm"
-                    href="/diensten"
-                  >
                     Beheer
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

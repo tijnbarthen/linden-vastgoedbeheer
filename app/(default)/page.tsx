@@ -5,26 +5,37 @@ export const metadata = {
 
 import Hero from '@/components/hero';
 import Inspiration from '@/components/inspiration';
-import Carousel from '@/components/carousel';
-import Creatives from '@/components/creatives';
-import Pricing from '@/components/pricing';
-import Testimonials from '@/components/testimonials';
-import Faqs from '@/components/faqs';
-import Blog from '@/components/blog';
-import Cta from '@/components/cta';
-import Features from '@/components/features';
-import TestimonialsDouble from '@/components/organisms/TestimonialsDouble';
-import { fetchHouses } from '@/utils/fetchHouses';
+import OnzeDiensten from '@/components/organisms/OnzeDiensten';
 
 export default async function Home() {
-  const data = await fetchHouses(6);
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/?maxRecords=6`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      next: {
+        revalidate: 3600,
+      },
+    },
+  );
+
+  if (!res.ok) {
+    throw new Error('Something went wrong');
+  }
+
+  const data = await res.json();
+
+  const { records } = data;
   return (
     <>
       <Hero />
 
-      <Inspiration data={data} />
-      <Features />
-      <TestimonialsDouble />
+      <Inspiration data={records} />
+      <OnzeDiensten centeredText />
+      {/* <Features /> */}
+
       {/* <Cta /> */}
     </>
   );

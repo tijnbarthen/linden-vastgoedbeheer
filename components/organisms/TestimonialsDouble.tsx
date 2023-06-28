@@ -5,10 +5,10 @@ export default function TestimonialsDouble() {
         <h2 className="text-3xl font-semibold leading-9 text-gray-900 font-cabinet-grotesk">
           Wat klanten over ons zeggen
         </h2>
-        <p className="mt-4 text-lg leading-7 text-gray-500">
+        {/* <p className="mt-4 text-lg leading-7 text-gray-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
           magnam voluptatum cupiditate veritatis in, accusamus quisquam.
-        </p>
+        </p> */}
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 function ChangeInRealEstate() {
   return (
     <div className="bg-white">
@@ -31,8 +33,11 @@ function ChangeInRealEstate() {
           kandidaat voor de woning te vinden.
         </p>
         <p className="text-lg">
-          U kunt contact met ons opnemen voor een kennismakingsgesprek en
-          vrijblijvend advies.
+          U kunt{' '}
+          <Link className="underline text-blue-600" href={'/contact'}>
+            contact
+          </Link>{' '}
+          met ons opnemen voor een kennismakingsgesprek en vrijblijvend advies.
         </p>
       </div>
     </div>
