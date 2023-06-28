@@ -67,118 +67,75 @@ export default async function Page({ params }: { params: any }) {
     <div className="bg-white">
       <div className="container max-w-6xl mx-auto px-6 lg:flex items-start justify-between py-6 gap-6">
         <div className="block md:py-0 lg:w-1/2 xl:w-3/5">
-          <ImageComponent images={fields['Photos']} />
+          {fields['Photos'] && <ImageComponent images={fields['Photos']} />}
         </div>
         <div className="xl:w-2/5 lg:w-1/2  mt-6 lg:mt-0">
           <div className="pb-6">
-            <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-              {fields.Status}
-            </span>
-            <h1
-              className="
-    					lg:text-2xl
-    					text-xl
-    					font-semibold
-    					lg:leading-6
-    					leading-7
-    					text-gray-800
-    					mt-2
-    				"
-            >
-              {fields.Naam}
+            {fields.Status && (
+              <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                {fields.Status}
+              </span>
+            )}
+            <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 mt-2">
+              {fields.Naam && fields.Naam}
             </h1>
-            <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
-              €{fields.Huursom}
-            </p>
+            {fields.Huursom && (
+              <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
+                € {fields.Huursom}
+              </p>
+            )}
           </div>
           <div className="flex flex-row mb-5 gap-4 ">
-            <div className="flex flex-row gap-2 items-center">
-              <IoBedOutline className="text-blue-950" size={20} />
-              <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                {fields.Slaapkamers}
-              </p>
-            </div>
-            <div className="flex flex-row gap-2 items-center">
-              <BiBath className="text-blue-950" size={20} />
-              <p className="ttext-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                {fields.Badkamers}
-              </p>
-            </div>
-            <div className="flex flex-row gap-2 items-center">
-              <span
-                className=" text-blue-950 border border-blue-950 text-sm"
-                style={{
-                  padding: '0 4px',
-                }}
-              >
-                M²
-              </span>
-              <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                {fields['M2']}
-              </p>
-            </div>
+            {fields.Slaapkamers && (
+              <div className="flex flex-row gap-2 items-center">
+                <IoBedOutline className="text-blue-950" size={20} />
+                <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                  {fields.Slaapkamers}
+                </p>
+              </div>
+            )}
+            {fields.Badkamers && (
+              <div className="flex flex-row gap-2 items-center">
+                <BiBath className="text-blue-950" size={20} />
+                <p className="ttext-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                  {fields.Badkamers}
+                </p>
+              </div>
+            )}
+            {fields['M2'] && (
+              <div className="flex flex-row gap-2 items-center">
+                <span
+                  className=" text-blue-950 border border-blue-950 text-sm"
+                  style={{
+                    padding: '0 4px',
+                  }}
+                >
+                  M²
+                </span>
+                <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                  {fields['M2']}
+                </p>
+              </div>
+            )}
           </div>
           <div className="flex flex-row gap-6">
-            <button
-              className="
-          btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm
-    			"
-            >
+            <button className="btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm">
               Bezichtiging
             </button>
-            <button
-              className="
-          btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm
-    			"
-            >
+            <button className="btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm">
               Contact
             </button>
           </div>
           <div>
-            <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">
-              {fields.Omschrijving}
-            </p>
+            {fields.Omschrijving && (
+              <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">
+                {fields.Omschrijving}
+              </p>
+            )}
           </div>
         </div>
       </div>
-      {/* <Container>
-        <h2
-          className="lg:text-2xl
-    					text-xl
-    					font-semibold
-    					lg:leading-6
-    					leading-7
-    					text-gray-800
-    					mt-5"
-        >
-          Beschrijving
-        </h2>
-        <p className="text-base leading-4 mt-4 text-gray-600">
-          Waarborg: 2 maanden huur
-        </p>
-        <p className="text-base leading-4 mt-4 text-gray-600">
-          Nutsvoorzieningen: exclusief
-        </p>
-        <p className="text-base leading-4 mt-4 text-gray-600">
-          Contract: maximaal 2 jaar [type B]
-        </p>
-        <p className="md:w-96 text-base leading-normal text-gray-600 mt-4">
-          Beschikbaar: 1 juni 2023
-        </p>
-        <p className="text-base leading-4 mt-4 text-gray-600">
-          Inschrijving: is toegestaan voor max. 2
-        </p>
-        <p className="text-base leading-4 mt-4 text-gray-600">
-          Home-sharing: niet toegestaan
-        </p>
-        <p className="text-base leading-4 mt-4 text-gray-600">
-          Studenten: niet toegestaan
-        </p>
-        <p className="text-base leading-4 mt-4 text-gray-600">
-          Roken: strikt verboden
-        </p>
-      </Container> */}
-      <RentalProposalForm house={fields} />
+      {fields.Status !== 'Verhuurd' && <RentalProposalForm house={fields} />}
     </div>
   );
 }
