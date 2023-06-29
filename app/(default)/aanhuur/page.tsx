@@ -24,7 +24,7 @@ function Voorbeeld() {
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-3">
+            {/* <div className="sm:col-span-3">
               <label
                 htmlFor="property-type"
                 className="block text-md font-medium leading-6 text-gray-900"
@@ -39,14 +39,14 @@ function Voorbeeld() {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="sm:col-span-3">
               <label
                 htmlFor="property-status"
                 className="block text-md font-medium leading-6 text-gray-900"
               >
-                Status (Huur/Koop)
+                Type (Huur/Koop)
               </label>
               <div className="mt-2">
                 <select
@@ -60,7 +60,7 @@ function Voorbeeld() {
               </div>
             </div>
 
-            <div className="sm:col-span-3">
+            {/* <div className="sm:col-span-3">
               <label
                 htmlFor="price"
                 className="block text-md font-medium leading-6 text-gray-900"
@@ -75,7 +75,7 @@ function Voorbeeld() {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="sm:col-span-3">
               <label
