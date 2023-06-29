@@ -25,15 +25,15 @@ function Contact() {
               Neem contact op
             </h2>
             <p className="mt-3 text-lg leading-6 text-gray-500">
-              Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat
-              massa dictumst amet. Sapien tortor lacus arcu.
+              Heb je een vraag? Wil je een bezichtiging? Of heb je advies nodig?
+              Laat je gegevens achter en wij nemen contact met je op.
             </p>
             <dl className="mt-8 text-base text-gray-500">
               <div>
                 <dt className="sr-only">Postadres</dt>
                 <dd>
-                  <p>Leidseplein</p>
-                  <p>Amsterdam, 1234 AA</p>
+                  <p>Rijkseweg 85</p>
+                  <p>1411GE Naarden</p>
                 </dd>
               </div>
               <div className="mt-6">
@@ -43,7 +43,12 @@ function Contact() {
                     className="h-6 w-6 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
                   />
-                  <span className="ml-3">+31 6 00 00 00 00 </span>
+                  <a
+                    href="tel:+31621284606"
+                    className="ml-3 underline text-blue-600"
+                  >
+                    +31 6 21284606
+                  </a>
                 </dd>
               </div>
               <div className="mt-3">
@@ -53,7 +58,14 @@ function Contact() {
                     className="h-6 w-6 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
                   />
-                  <span className="ml-3">support@lindenvastgoed.nl</span>
+                  <span className="ml-3">
+                    <a
+                      className="underline text-blue-600"
+                      href="mailto:support@lindenvastgoed.nl"
+                    >
+                      support@lindenvastgoed.nl
+                    </a>
+                  </span>
                 </dd>
               </div>
             </dl>

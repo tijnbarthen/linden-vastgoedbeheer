@@ -47,9 +47,9 @@ const getHouseData = async (propertySlug: string) => {
     },
   });
 
-  // if (!res.ok) {
-  //   throw new Error('Something went wrong');
-  // }
+  if (!res.ok) {
+    return <div>Something went wrong</div>;
+  }
 
   const data = await res.json();
 
@@ -60,6 +60,10 @@ export default async function Page({ params }: { params: any }) {
   const { propertySlug } = params;
 
   const data = await getHouseData(propertySlug);
+
+  if (!data) {
+    return <div>Something went wrong</div>;
+  }
 
   const { fields } = data;
 
@@ -119,10 +123,24 @@ export default async function Page({ params }: { params: any }) {
             )}
           </div>
           <div className="flex flex-row gap-6">
-            <button className="btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm">
+            <button
+              className={`btn-sm text-white ${
+                fields.Status === 'Verhuurd'
+                  ? 'bg-slate-600'
+                  : 'bg-blue-950 hover:bg-blue-600'
+              } w-full shadow-sm`}
+              disabled={fields.Status === 'Verhuurd' ? false : false}
+            >
               Bezichtiging
             </button>
-            <button className="btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm">
+            <button
+              className={`btn-sm text-white ${
+                fields.Status === 'Verhuurd'
+                  ? 'bg-slate-600'
+                  : 'bg-blue-950 hover:bg-blue-600'
+              } w-full shadow-sm`}
+              disabled={fields.Status === 'Verhuurd' ? false : false}
+            >
               Contact
             </button>
           </div>

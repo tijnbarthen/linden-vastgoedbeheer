@@ -66,7 +66,7 @@ export default function Hero() {
                 <div>
                   <Link
                     className="btn text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm border-white border-2"
-                    href="/diensten"
+                    href="/onze-diensten"
                   >
                     Beheer
                   </Link>

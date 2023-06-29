@@ -18,7 +18,7 @@ export default function Inspiration({ data }: { data: any }) {
             </div>
             <div className="flex justify-center mt-10">
               <Link href="/aanbod">
-                <button className="bg-blue-950 text-white px-4 py-2 rounded-md">
+                <button className="bg-blue-950 text-white px-4 py-2 rounded-full">
                   Bekijk alles
                 </button>
               </Link>

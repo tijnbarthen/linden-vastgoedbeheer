@@ -17,8 +17,12 @@ const navLinks = [
     path: '/over-ons',
   },
   {
-    title: 'Vastgoedeigenaren',
-    path: '/vastgoedeigenaren',
+    title: 'Onze diensten',
+    path: '/onze-diensten',
+  },
+  {
+    title: 'Aanhuur',
+    path: '/aanhuur',
   },
   {
     title: 'Onderhoud',
@@ -39,11 +43,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-12 md:mb-6">
             <div className="shrink-0 mr-4">
               {/* Logo */}
-              <Link
-                className="inline-flex group mb-8 sm:mb-0"
-                href="/"
-                aria-label="Cruip"
-              >
+              <Link className="inline-flex group mb-8 sm:mb-0" href="/">
                 <Image src={Logo} width={200} height={120} alt="logo" />
               </Link>
             </div>

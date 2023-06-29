@@ -68,7 +68,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
             <nav className="hidden lg:flex md:justify-end">
               <ul className="flex flex-row sm:flex-grow items-center">
                 {navLinks.map((item, index) => (
-                  <li className="ml-3" key={index}>
+                  <li className="ml-1" key={index}>
                     <Link
                       href={item.path}
                       className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
@@ -77,7 +77,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
                     </Link>
                   </li>
                 ))}
-                <li className="ml-3">
+                <li className="ml-1">
                   <Link
                     href="/contact"
                     className="btn-sm text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm"
@@ -92,9 +92,9 @@ export default function Header({ nav = true }: { nav?: boolean }) {
         {/* Mobile navigation */}
         {nav && (
           <nav className={`lg:hidden ${isOpen ? 'block' : 'hidden'}`}>
-            <ul className="flex flex-col items-end py-6 gap-2">
+            <ul className="flex flex-col items-end py-1 gap-1">
               {navLinks.map((item, index) => (
-                <li className="mb-4" key={index}>
+                <li className="mb-1" key={index}>
                   <Link
                     href={item.path}
                     className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"

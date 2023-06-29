@@ -10,6 +10,9 @@ async function fetchHouses() {
         Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
         'Content-Type': 'application/json',
       },
+      next: {
+        revalidate: 3600,
+      },
     },
   );
 

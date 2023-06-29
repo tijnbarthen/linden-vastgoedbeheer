@@ -5,6 +5,7 @@ import { MdSell as MdSellIcon } from 'react-icons/md';
 import { TbDoorEnter as TbDoorEnterIcon } from 'react-icons/tb';
 import { MdPhotoCamera as MdPhotoCameraIcon } from 'react-icons/md';
 import { IoKeySharp } from 'react-icons/io5';
+import { BiCheckboxChecked } from 'react-icons/bi';
 
 const features = [
   {
@@ -65,7 +66,7 @@ const features = [
     description:
       'Wij zijn 7 dagen per week beschikbaar voor bezichtigingen. Wij zorgen ervoor dat de woning op een professionele manier wordt gepresenteerd.',
     href: '#',
-    icon: MdPhotoCameraIcon,
+    icon: BiCheckboxChecked,
   },
   {
     name: 'Professionele screening van potentiële huurder',
