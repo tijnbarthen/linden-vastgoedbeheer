@@ -49,7 +49,13 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           <div className="shrink-0 mr-4">
             {/* Logo */}
             <Link href="/" className="block group" aria-label="Cruip">
-              <Image src={Logo} width={200} height={45} alt="logo" />
+              <Image
+                src={Logo}
+                width={180}
+                className="cursor-pointer "
+                height={45}
+                alt="logo"
+              />
             </Link>
           </div>
           <div className="lg:hidden">
