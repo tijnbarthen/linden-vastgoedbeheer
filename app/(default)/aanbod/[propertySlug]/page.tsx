@@ -17,9 +17,9 @@ export async function generateStaticParams() {
     },
   );
 
-  // if (!res.ok) {
-  //   throw new Error('Something went wrong');
-  // }
+  if (!res.ok) {
+    throw new Error('Something went wrong');
+  }
 
   const data = await res.json();
 
