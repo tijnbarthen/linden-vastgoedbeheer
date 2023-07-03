@@ -16,7 +16,7 @@ export default async function Home() {
         'Content-Type': 'application/json',
       },
       next: {
-        revalidate: 1,
+        revalidate: 0,
       },
     },
   );

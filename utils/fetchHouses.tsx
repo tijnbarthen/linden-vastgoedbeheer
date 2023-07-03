@@ -7,7 +7,7 @@ export async function fetchHouses(maxRecords?: number) {
         'Content-Type': 'application/json',
       },
       next: {
-        revalidate: 1,
+        revalidate: 0,
       },
     },
   );

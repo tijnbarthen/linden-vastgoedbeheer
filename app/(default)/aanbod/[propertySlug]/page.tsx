@@ -43,7 +43,7 @@ const getHouseData = async (propertySlug: string) => {
   const res = await fetch(fullUrl, {
     headers,
     next: {
-      revalidate: 1,
+      revalidate: 0,
     },
   });
 
