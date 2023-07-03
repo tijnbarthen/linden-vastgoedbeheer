@@ -51,7 +51,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
           {Photos && Photos[0] && (
             <img
               className="w-full h-56 object-cover rounded-lg"
-              src={Photos[0].thumbnails.large.url}
+              src={Photos[0]?.thumbnails?.large.url}
               alt={Naam}
             />
           )}

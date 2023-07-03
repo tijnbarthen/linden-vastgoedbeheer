@@ -7,155 +7,173 @@ import { BiBath } from 'react-icons/bi';
 import ImageComponent from '@/components/organisms/ImageComponent';
 
 export async function generateStaticParams() {
-  const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-        'Content-Type': 'application/json',
+  try {
+    const res = await fetch(
+      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
       },
-    },
-  );
+    );
 
-  if (!res.ok) {
-    throw new Error('Something went wrong');
+    if (!res.ok) {
+      throw new Error('Something went wrong');
+    }
+
+    const data = await res.json();
+
+    return data.records.map((house: any) => ({
+      propertySlug: house.fields.RECORD_ID,
+    }));
+  } catch (error) {
+    // Handle the error
+    console.error('Error in generateStaticParams:', error);
+    // You can choose to throw the error again or return a default value
+    throw error;
   }
-
-  const data = await res.json();
-
-  return data.records.map((house: any) => ({
-    propertySlug: house.fields.RECORD_ID,
-  }));
 }
+
 const getHouseData = async (propertySlug: string) => {
-  const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`;
-  const headers = {
-    Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-    'Content-Type': 'application/json',
-  };
-  const params = {
-    filterByFormula: `{RECORD_ID} = "${propertySlug}"`,
-  };
+  try {
+    const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`;
+    const headers = {
+      Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+      'Content-Type': 'application/json',
+    };
+    const params = {
+      filterByFormula: `{RECORD_ID} = "${propertySlug}"`,
+    };
 
-  const queryString = new URLSearchParams(params).toString();
-  const fullUrl = `${url}?${queryString}`;
+    const queryString = new URLSearchParams(params).toString();
+    const fullUrl = `${url}?${queryString}`;
 
-  const res = await fetch(fullUrl, {
-    headers,
-    next: {
-      revalidate: 0,
-    },
-  });
+    const res = await fetch(fullUrl, {
+      headers,
+      next: {
+        revalidate: 0,
+      },
+    });
 
-  if (!res.ok) {
-    return <div>Something went wrong</div>;
+    if (!res.ok) {
+      throw new Error('Something went wrong');
+    }
+
+    const data = await res.json();
+
+    return data.records[0];
+  } catch (error) {
+    // Handle the error
+    console.error('Error in getHouseData:', error);
+    // You can choose to throw the error again or return a default value
+    throw error;
   }
-
-  const data = await res.json();
-
-  return data.records[0];
 };
 
 export default async function Page({ params }: { params: any }) {
-  const { propertySlug } = params;
+  try {
+    const { propertySlug } = params;
 
-  const data = await getHouseData(propertySlug);
+    const houseData = await getHouseData(propertySlug);
 
-  if (!data) {
+    const { fields } = houseData;
+
+    return (
+      <div className="bg-white">
+        <div className="container max-w-6xl mx-auto px-6 lg:flex items-start justify-between py-6 gap-6">
+          <div className="block md:py-0 lg:w-1/2 xl:w-3/5">
+            {fields['Photos'] && <ImageComponent images={fields['Photos']} />}
+          </div>
+          <div className="xl:w-2/5 lg:w-1/2  mt-6 lg:mt-0">
+            <div className="pb-6">
+              {fields.Status && (
+                <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                  {fields.Status}
+                </span>
+              )}
+              <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 mt-2">
+                {fields.Naam && fields.Naam}
+              </h1>
+              {fields.Huursom && (
+                <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
+                  € {fields.Huursom}
+                </p>
+              )}
+            </div>
+            <div className="flex flex-row mb-5 gap-4 ">
+              {fields.Slaapkamers && (
+                <div className="flex flex-row gap-2 items-center">
+                  <IoBedOutline className="text-blue-950" size={20} />
+                  <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                    {fields.Slaapkamers}
+                  </p>
+                </div>
+              )}
+              {fields.Badkamers && (
+                <div className="flex flex-row gap-2 items-center">
+                  <BiBath className="text-blue-950" size={20} />
+                  <p className="ttext-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                    {fields.Badkamers}
+                  </p>
+                </div>
+              )}
+              {fields['M2'] && (
+                <div className="flex flex-row gap-2 items-center">
+                  <span
+                    className=" text-blue-950 border border-blue-950 text-sm"
+                    style={{
+                      padding: '0 4px',
+                    }}
+                  >
+                    M²
+                  </span>
+                  <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                    {fields['M2']}
+                  </p>
+                </div>
+              )}
+            </div>
+            <div className="flex flex-row gap-6">
+              <button
+                className={`btn-sm text-white ${
+                  fields.Status === 'Verhuurd'
+                    ? 'bg-slate-600'
+                    : 'bg-blue-950 hover:bg-blue-600'
+                } w-full shadow-sm`}
+                disabled={fields.Status === 'Verhuurd' ? false : false}
+              >
+                Bezichtiging
+              </button>
+              <button
+                className={`btn-sm text-white ${
+                  fields.Status === 'Verhuurd'
+                    ? 'bg-slate-600'
+                    : 'bg-blue-950 hover:bg-blue-600'
+                } w-full shadow-sm`}
+                disabled={fields.Status === 'Verhuurd' ? false : false}
+              >
+                Contact
+              </button>
+            </div>
+            <div>
+              {fields.Omschrijving && (
+                <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">
+                  {fields.Omschrijving}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+        {fields.Status !== 'Verhuurd' && <RentalProposalForm house={fields} />}
+      </div>
+    );
+  } catch (error) {
+    // Handle the error
+    console.error('Error in Page:', error);
+    // Render an appropriate error message or fallback component
     return <div>Something went wrong</div>;
   }
-
-  const { fields } = data;
-
-  return (
-    <div className="bg-white">
-      <div className="container max-w-6xl mx-auto px-6 lg:flex items-start justify-between py-6 gap-6">
-        <div className="block md:py-0 lg:w-1/2 xl:w-3/5">
-          {fields['Photos'] && <ImageComponent images={fields['Photos']} />}
-        </div>
-        <div className="xl:w-2/5 lg:w-1/2  mt-6 lg:mt-0">
-          <div className="pb-6">
-            {fields.Status && (
-              <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                {fields.Status}
-              </span>
-            )}
-            <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 mt-2">
-              {fields.Naam && fields.Naam}
-            </h1>
-            {fields.Huursom && (
-              <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
-                € {fields.Huursom}
-              </p>
-            )}
-          </div>
-          <div className="flex flex-row mb-5 gap-4 ">
-            {fields.Slaapkamers && (
-              <div className="flex flex-row gap-2 items-center">
-                <IoBedOutline className="text-blue-950" size={20} />
-                <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                  {fields.Slaapkamers}
-                </p>
-              </div>
-            )}
-            {fields.Badkamers && (
-              <div className="flex flex-row gap-2 items-center">
-                <BiBath className="text-blue-950" size={20} />
-                <p className="ttext-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                  {fields.Badkamers}
-                </p>
-              </div>
-            )}
-            {fields['M2'] && (
-              <div className="flex flex-row gap-2 items-center">
-                <span
-                  className=" text-blue-950 border border-blue-950 text-sm"
-                  style={{
-                    padding: '0 4px',
-                  }}
-                >
-                  M²
-                </span>
-                <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                  {fields['M2']}
-                </p>
-              </div>
-            )}
-          </div>
-          <div className="flex flex-row gap-6">
-            <button
-              className={`btn-sm text-white ${
-                fields.Status === 'Verhuurd'
-                  ? 'bg-slate-600'
-                  : 'bg-blue-950 hover:bg-blue-600'
-              } w-full shadow-sm`}
-              disabled={fields.Status === 'Verhuurd' ? false : false}
-            >
-              Bezichtiging
-            </button>
-            <button
-              className={`btn-sm text-white ${
-                fields.Status === 'Verhuurd'
-                  ? 'bg-slate-600'
-                  : 'bg-blue-950 hover:bg-blue-600'
-              } w-full shadow-sm`}
-              disabled={fields.Status === 'Verhuurd' ? false : false}
-            >
-              Contact
-            </button>
-          </div>
-          <div>
-            {fields.Omschrijving && (
-              <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">
-                {fields.Omschrijving}
-              </p>
-            )}
-          </div>
-        </div>
-      </div>
-      {fields.Status !== 'Verhuurd' && <RentalProposalForm house={fields} />}
-    </div>
-  );
 }
 
 function RentalProposalForm({ house }: { house: any }) {
