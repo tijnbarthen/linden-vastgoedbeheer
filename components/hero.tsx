@@ -21,7 +21,7 @@ export default function Hero() {
                 className="h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl text-white lg:text-5xl xl:text-6xl"
                 data-aos="fade-right"
               >
-                LINDEN <br />
+                Vind jouw ideale woning, verkoop met gemak of laat jouw vastgoed
                 <span
                   className="relative inline-flex text-blue-300 h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                   data-aos="fade-right"
@@ -33,7 +33,7 @@ export default function Hero() {
                     viewBox="0 0 220 24"
                     xmlns="http://www.w3.org/2000/svg"
                   ></svg>
-                  VASTGOED
+                  professioneel beheren.
                 </span>
               </h1>
               <p
@@ -41,8 +41,7 @@ export default function Hero() {
                 data-aos="fade-right"
                 data-aos-delay="200"
               >
-                Vind jouw ideale woning, verkoop met gemak of laat jouw vastgoed
-                professioneel beheren.
+                Linden Vastgoed jouw partner in vastgoed.
               </p>
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-20"
@@ -53,6 +52,7 @@ export default function Hero() {
                   <Link
                     href="/aanbod"
                     className="btn text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm border-white border-2"
+                    data-aos="fade-left"
                   >
                     Verhuur
                   </Link>
@@ -61,6 +61,7 @@ export default function Hero() {
                   <Link
                     className="btn text-gray-600 bg-white hover:bg-blue-100 hover:text-blue-600 w-full shadow-sm"
                     href="/aanhuur"
+                    data-aos="fade-up"
                   >
                     Aanhuur
                   </Link>
@@ -69,6 +70,7 @@ export default function Hero() {
                   <Link
                     className="btn text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm border-white border-2"
                     href="/onze-diensten"
+                    data-aos="fade-right"
                   >
                     Beheer
                   </Link>
