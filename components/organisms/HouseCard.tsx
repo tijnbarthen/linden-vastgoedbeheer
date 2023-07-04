@@ -39,6 +39,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
     <Link href="/aanbod/[id]" as={`/aanbod/${RECORD_ID}`}>
       <div
         className={`relative ${className} hover:shadow-xl transition-shadow hover:scale-105 duration-200 ease-in-out h-full items-stretch min-h-full`}
+        data-aos="fade-right"
       >
         {Status && (
           <span className="absolute top-2 left-2 rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">

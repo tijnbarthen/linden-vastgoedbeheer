@@ -18,12 +18,14 @@ export default function Hero() {
             {/* Content */}
             <div className="md:w-[640px]">
               <h1
-                className="h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl text-white lg:text-5xl xl:text-6xl aos-init aos-animate"
+                className="h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl text-white lg:text-5xl xl:text-6xl"
                 data-aos="fade-right"
-                data-aos-delay="100"
               >
-                VERHUUR, AANHUUR,
-                <span className="relative inline-flex text-blue-300 h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl aos-init aos-animate">
+                LINDEN <br />
+                <span
+                  className="relative inline-flex text-blue-300 h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+                  data-aos="fade-right"
+                >
                   <svg
                     className="absolute left-0 top-full -mt-4 max-w-full -z-10"
                     width="220"
@@ -31,11 +33,11 @@ export default function Hero() {
                     viewBox="0 0 220 24"
                     xmlns="http://www.w3.org/2000/svg"
                   ></svg>
-                  BEHEER
+                  VASTGOED
                 </span>
               </h1>
               <p
-                className="text-xl text-white mb-10 aos-init aos-animate font-cabinet-grotesk"
+                className="text-xl text-white mb-10 font-cabinet-grotesk"
                 data-aos="fade-right"
                 data-aos-delay="200"
               >
@@ -43,7 +45,7 @@ export default function Hero() {
                 professioneel beheren.
               </p>
               <div
-                className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-20 aos-init aos-animate"
+                className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-20"
                 data-aos="fade-right"
                 data-aos-delay="300"
               >

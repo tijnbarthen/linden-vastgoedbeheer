@@ -100,6 +100,7 @@ export default function OnzeDiensten({
             style={{
               textAlign: centeredText ? 'center' : 'left',
             }}
+            data-aos="fade-down"
           >
             Onze diensten
           </h2>
@@ -108,7 +109,11 @@ export default function OnzeDiensten({
       <div className="mx-auto mt-10 max-w-2xl sm:mt-20 lg:mt-12 lg:max-w-none">
         <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
           {features.map((feature) => (
-            <div key={feature.name} className="flex flex-col">
+            <div
+              key={feature.name}
+              className="flex flex-col"
+              data-aos="fade-left"
+            >
               <dt className="text-base font-semibold leading-7 text-gray-900">
                 <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-950">
                   <feature.icon

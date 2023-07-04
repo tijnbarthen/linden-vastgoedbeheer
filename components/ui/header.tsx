@@ -48,13 +48,18 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
-            <Link href="/" className="block group" aria-label="Cruip">
+            <Link
+              href="/"
+              className="block group"
+              aria-label={'Linden Vastgoed'}
+            >
               <Image
                 src={Logo}
                 width={180}
                 className="cursor-pointer "
                 height={45}
                 alt="logo"
+                data-aos="fade-down"
               />
             </Link>
           </div>
@@ -74,7 +79,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
             <nav className="hidden lg:flex md:justify-end">
               <ul className="flex flex-row sm:flex-grow items-center">
                 {navLinks.map((item, index) => (
-                  <li className="ml-1" key={index}>
+                  <li className="ml-1" key={index} data-aos="fade-right">
                     <Link
                       href={item.path}
                       className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"

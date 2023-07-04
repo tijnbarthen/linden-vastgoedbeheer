@@ -5,6 +5,7 @@ export const metadata = {
 
 import Hero from '@/components/hero';
 import Inspiration from '@/components/inspiration';
+import HeroSecond from '@/components/organisms/HeroSecond';
 import OnzeDiensten from '@/components/organisms/OnzeDiensten';
 
 export default async function Home() {
@@ -31,7 +32,6 @@ export default async function Home() {
   return (
     <>
       <Hero />
-
       <Inspiration data={records} />
       <OnzeDiensten centeredText />
       {/* <Features /> */}
