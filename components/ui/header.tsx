@@ -82,7 +82,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
             )}
           </div>
           {/* Desktop navigation */}
-          {nav && isOpen && (
+          {nav && (
             <nav className="hidden lg:flex md:justify-end">
               <ul className="flex flex-row sm:flex-grow items-center">
                 {navLinks.map((item, index) => (
@@ -108,7 +108,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           )}
         </div>
         {/* Mobile navigation */}
-        {nav && (
+        {nav && isOpen && (
           <nav className={`lg:hidden ${isOpen ? 'block' : 'hidden'}`}>
             <ul className="flex flex-col items-end py-1">
               {navLinks.map((item, index) => (
