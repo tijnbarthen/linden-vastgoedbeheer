@@ -3,7 +3,11 @@ import Link from 'next/link';
 function ChangeInRealEstate() {
   return (
     <div className="bg-white">
-      <div className="container max-w-6xl mx-auto md:py-24 md:px-6 py-9 px-4">
+      <div
+        className="container max-w-6xl mx-auto md:py-16 md:px-6 py-9 px-4"
+        data-aos="fade-down"
+        data-aos-delay="200"
+      >
         <h2 className="h2 text-4xl text-left mb-6">
           Tijd voor verandering in de makelaardij!
         </h2>

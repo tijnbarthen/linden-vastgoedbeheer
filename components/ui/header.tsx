@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import Logo from '@/public/images/logo-linden.png';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   {
@@ -37,13 +38,19 @@ export default function Header({ nav = true }: { nav?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
 
+  const pathname = usePathname();
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <header className="block w-full z-30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Site branding */}
           <div className="shrink-0 mr-4">
@@ -75,7 +82,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
             )}
           </div>
           {/* Desktop navigation */}
-          {nav && (
+          {nav && isOpen && (
             <nav className="hidden lg:flex md:justify-end">
               <ul className="flex flex-row sm:flex-grow items-center">
                 {navLinks.map((item, index) => (
@@ -103,12 +110,12 @@ export default function Header({ nav = true }: { nav?: boolean }) {
         {/* Mobile navigation */}
         {nav && (
           <nav className={`lg:hidden ${isOpen ? 'block' : 'hidden'}`}>
-            <ul className="flex flex-col items-end py-1 gap-1">
+            <ul className="flex flex-col items-end py-1">
               {navLinks.map((item, index) => (
                 <li className="mb-1" key={index}>
                   <Link
                     href={item.path}
-                    className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                    className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-1 lg:px-5 py-1 flex items-center transition duration-150 ease-in-out"
                   >
                     {item.title}
                   </Link>

@@ -27,6 +27,20 @@ const features = [
     icon: TbDoorEnterIcon,
   },
   {
+    name: 'Vastgoedbeheer',
+    description:
+      'Wij beheren uw portefeuille op een betrouwbare en accuratie manier. Wij streven naar verduurzaming en daarom ook dat eigenaren die bereid zijn te investeren, dat de woning en huurders.',
+    href: '#',
+    icon: MdBusinessCenterIcon,
+  },
+  {
+    name: 'Aanhuur',
+    description:
+      'De zoektocht naar een woning is erg lastig tegenwoordig. Wij hebben onze eigen lijst waar de zoekopdracht in terecht komt.',
+    href: '#',
+    icon: BsSearchIcon,
+  },
+  {
     name: 'Bedrijfsonroerendgoed',
     description:
       'Bedrijfspand, kantoorruimte of winkelpand verhuren? Wij helpen bij het maken van de volgende stap. Wat doet de markt? Voor welke prijs kun je verhuren of kunt u beter verkopen?',
@@ -39,20 +53,6 @@ const features = [
       'Onze professionals begeleiden u in het verkoopproces van uw woning. Wij komen graag bij u langs voor een kosteloos kennismakingsgesprek met waardebepaling.',
     href: '#',
     icon: MdSellIcon,
-  },
-  {
-    name: 'Vastgoedbeheer',
-    description:
-      'Wij beheren uw portefeuille op een betrouwbare en accuratie manier. Wij streven naar verduurzaming en daarom ook dat eigenaren die bereid zijn te investeren, dat de woning en huurders.',
-    href: '#',
-    icon: MdBusinessCenterIcon,
-  },
-  {
-    name: 'Zoekerlijst',
-    description:
-      'De zoektocht naar een woning is erg lastig tegenwoordig. Wij hebben onze eigen lijst waar de zoekopdracht in terecht komt.',
-    href: '#',
-    icon: BsSearchIcon,
   },
   {
     name: 'Foto’s en video’s maken van woningen',
@@ -87,9 +87,11 @@ const features = [
 export default function OnzeDiensten({
   centeredText = false,
   withTitle = true,
+  itemCount = 9,
 }: {
   centeredText?: boolean;
   withTitle?: boolean;
+  itemCount?: number;
 }) {
   return (
     <div className="mx-auto max-w-6xl px-6 mb-10">
@@ -101,6 +103,7 @@ export default function OnzeDiensten({
               textAlign: centeredText ? 'center' : 'left',
             }}
             data-aos="fade-down"
+            data-aos-delay="200"
           >
             Onze diensten
           </h2>
@@ -108,30 +111,32 @@ export default function OnzeDiensten({
       </div>
       <div className="mx-auto mt-10 max-w-2xl sm:mt-20 lg:mt-12 lg:max-w-none">
         <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-          {features.map((feature) => (
-            <div
-              key={feature.name}
-              className="flex flex-col"
-              data-aos="fade-left"
-            >
-              <dt className="text-base font-semibold leading-7 text-gray-900">
-                <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-950">
-                  <feature.icon
-                    className="h-6 w-6 text-white"
-                    aria-hidden="true"
-                  />
-                </div>
-                {feature.name}
-              </dt>
-              <dd
-                className="
+          {features
+            .map((feature) => (
+              <div
+                key={feature.name}
+                className="flex flex-col"
+                data-aos="fade-left"
+              >
+                <dt className="text-base font-semibold leading-7 text-gray-900">
+                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-950">
+                    <feature.icon
+                      className="h-6 w-6 text-white"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  {feature.name}
+                </dt>
+                <dd
+                  className="
 
 mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
-              >
-                <p className="flex-auto">{feature.description}</p>
-              </dd>
-            </div>
-          ))}
+                >
+                  <p className="flex-auto">{feature.description}</p>
+                </dd>
+              </div>
+            ))
+            .slice(0, itemCount)}
         </dl>
       </div>
     </div>

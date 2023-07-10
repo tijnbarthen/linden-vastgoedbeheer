@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import Logo from '@/public/images/logo-linden.png';
+import CtaSection from '../molecules/CtaSection';
 
 const navLinks = [
   {
@@ -38,6 +39,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
+        <CtaSection />
         <div className="py-8 md:py-12 border-t border-gray-900/10">
           {/* Top area */}
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-12 md:mb-6">
@@ -47,27 +49,6 @@ export default function Footer() {
                 <Image src={Logo} width={200} height={120} alt="logo" />
               </Link>
             </div>
-            {/* <form className="w-full max-w-sm">
-              <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none items-center">
-                <div className="flex flex-col">
-                  <a className="mb-2 font-bold">
-                    Schrijf je in voor onze nieuwsbrief!
-                  </a>
-                  <input
-                    type="email"
-                    className="form-input w-full mb-2 sm:mb-0 sm:mr-2"
-                    placeholder="Your email"
-                    aria-label="Your email"
-                  />
-                </div>
-                <button
-                  className="btn-sm text-white bg-blue-950 hover:bg-blue-600 shadow-sm whitespace-nowrap  ml-2 sm:h-10"
-                  type="submit"
-                >
-                  Inschrijven
-                </button>
-              </div>
-            </form> */}
           </div>
           {/* Bottom area */}
           <div className="text-center md:flex md:items-center md:justify-between mb-8 md:mb-6">

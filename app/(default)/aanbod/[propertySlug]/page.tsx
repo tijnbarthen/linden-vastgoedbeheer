@@ -19,7 +19,11 @@ export async function generateStaticParams() {
     );
 
     if (!res.ok) {
-      throw new Error('Something went wrong');
+      return (
+        <div className="bg-white">
+          <h2>Something Went Wrong</h2>
+        </div>
+      );
     }
 
     const data = await res.json();

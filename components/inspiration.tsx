@@ -5,7 +5,7 @@ export default function Inspiration({ data }: { data: any }) {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6" data-aos="fade-down">
-        <div className="py-12 md:pt-32 md:pb-20">
+        <div className="py-12 md:pt-16 md:pb-20">
           {/* Section header */}
           <div className="pb-6 md:pb-6">
             <div className="relative text-center">
@@ -23,7 +23,7 @@ export default function Inspiration({ data }: { data: any }) {
             </div>
             <div className="flex justify-center mt-10" data-aos="fade-down">
               <Link href="/aanbod">
-                <button className="bg-blue-950 text-white px-4 py-2 rounded-full">
+                <button className="bg-blue-300 text-white px-4 py-2 rounded-full">
                   Bekijk alles
                 </button>
               </Link>

@@ -3,6 +3,7 @@ type HeaderProps = {
   subtitle?: string;
   image?: string;
   children?: React.ReactNode;
+  imagePosition?: string;
 };
 
 export default function Header({
@@ -10,6 +11,7 @@ export default function Header({
   subtitle,
   image,
   children,
+  imagePosition = 'center center',
 }: HeaderProps) {
   let d = new Date();
   return (
@@ -20,9 +22,15 @@ export default function Header({
     >
       <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8 md:rounded-lg rounded-b-lg">
         <img
-          src="https://images.unsplash.com/photo-1658119416373-42979248e4c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+          src={
+            image ||
+            'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80'
+          }
           alt=""
           className="absolute inset-0 -z-10 h-full w-full object-cover"
+          style={{
+            objectPosition: imagePosition,
+          }}
         />
         {/* <div
           className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
@@ -48,8 +56,8 @@ export default function Header({
             }}
           />
         </div> */}
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <div className="mx-auto max-w-2xl text-center flex justify-center items-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl bg-blue-950 px-4 w-fit text-center">
             {title}
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">{subtitle}</p>

@@ -23,7 +23,11 @@ export default async function Home() {
   );
 
   if (!res.ok) {
-    throw new Error('Something went wrong');
+    return (
+      <div>
+        <h1>Something went wrong</h1>
+      </div>
+    );
   }
 
   const data = await res.json();
@@ -33,7 +37,7 @@ export default async function Home() {
     <>
       <Hero />
       <Inspiration data={records} />
-      <OnzeDiensten centeredText />
+      <OnzeDiensten centeredText itemCount={5} />
       {/* <Features /> */}
 
       {/* <Cta /> */}

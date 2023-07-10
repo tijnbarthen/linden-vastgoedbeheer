@@ -11,16 +11,19 @@ export default function Page() {
 
 function Voorbeeld() {
   return (
-    <form className="max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4">
+    <form
+      className="max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4"
+      data-aos="fade-down"
+      data-aos-delay="200"
+    >
       <div className="space-y-12">
         <div className="pb-12">
           <h2 className="text-3xl font-semibold leading-7 text-gray-900">
-            Een mooie en fincancieel realistische huurwoning vinden lijkt in
-            deze tijd onmogelijk geworden. Om dit proces toch succesvol te maken
-            kunt u overwegen om ons een ‘no cure no pay’ zoekopdracht te geven.
+            Geef je voorkeuren op en we zullen de beste match voor je vinden.
           </h2>
           <p className="mt-1 text-md leading-6 text-gray-600">
-            Geef je voorkeuren op en we zullen de beste match voor je vinden.
+            We zullen ons best doen om je te helpen bij het vinden van je nieuwe
+            thuis.
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -310,6 +313,40 @@ function Voorbeeld() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="text-gray-500 ">
+        <p className="text-md text-gray-900">
+          Door dit formulier in te vullen ga je akkoord met onze algemene
+          voorwaarden:
+        </p>
+
+        {/* Disclaimer content */}
+        <p className="text-sm text-gray-500">
+          Een mooie en financieel realistische huurwoning vinden lijkt in deze
+          tijd onmogelijk geworden. Om dit proces toch succesvol te maken, kunt
+          u overwegen om ons een 'no cure no pay' zoekopdracht te geven.
+        </p>
+        <p className="text-sm text-gray-500">
+          Wij werken op basis van 'No Cure - No pay', bij een succesvolle
+          zoekopdracht vragen wij courtage gelijk aan 1 maand huur exclusief 21%
+          BTW.
+        </p>
+        <p className="text-sm text-gray-500">
+          Verder bent u vrij om de zoekopdracht terug te trekken via een e-mail
+          of WhatsApp-bericht.
+        </p>
+        <p className="text-sm text-gray-500">
+          Echter, trekt u als kandidaat terug nadat een huurvoorstel is
+          geaccepteerd, dan bent u ons een vergoeding schuldig van € 250
+          exclusief 21% BTW. Wij verwijzen u graag naar artikel 4.7 van
+          onderwerp "Verplichtingen van opdrachtgever" van onze Algemene
+          Voorwaarden.
+        </p>
+        <p className="text-sm">
+          Bent u nog op zoek naar de juiste huurwoning in Amsterdam en wilt u
+          gebruikmaken van onze service? Klik dan onderaan de pagina verder.
+        </p>
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">

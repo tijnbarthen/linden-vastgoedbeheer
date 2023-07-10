@@ -7,10 +7,13 @@ export default function Hero() {
   return (
     <section className="relative">
       {/* Bg */}
-      <div
-        className="absolute inset-0 rounded-b-xl bg-blue-950 pointer-events-none -z-10"
-        aria-hidden="true"
+      <div className="absolute inset-0 bg-black opacity-30"></div>
+      <img
+        src="https://images.unsplash.com/photo-1459679749680-18eb1eb37418?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80"
+        alt=""
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-32 pb-12 md:pt-40 md:pb-20 flex justify-center">
           {/* Hero content */}
@@ -23,7 +26,7 @@ export default function Hero() {
               >
                 Vind jouw ideale woning, verkoop met gemak of laat jouw vastgoed
                 <span
-                  className="relative inline-flex text-blue-300 h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+                  className="relative inline-flex text-white h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  bg-blue-950 px-3"
                   data-aos="fade-right"
                 >
                   <svg
@@ -37,7 +40,7 @@ export default function Hero() {
                 </span>
               </h1>
               <p
-                className="text-xl text-white mb-10 font-cabinet-grotesk"
+                className="text-2xl text-white mb-10 font-cabinet-grotesk font-bold"
                 data-aos="fade-right"
                 data-aos-delay="200"
               >
@@ -51,7 +54,7 @@ export default function Hero() {
                 <div>
                   <Link
                     href="/aanbod"
-                    className="btn text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm border-white border-2"
+                    className="btn text-white bg-blue-300 hover:bg-blue-600 w-full shadow-sm"
                     data-aos="fade-left"
                   >
                     Verhuur
@@ -68,7 +71,7 @@ export default function Hero() {
                 </div>
                 <div>
                   <Link
-                    className="btn text-white bg-blue-950 hover:bg-blue-600 w-full shadow-sm border-white border-2"
+                    className="btn text-white bg-blue-300 hover:bg-blue-600 w-full shadow-sm "
                     href="/onze-diensten"
                     data-aos="fade-right"
                   >
@@ -77,23 +80,6 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-            {/* Image */}
-            {/* Image */}
-            {/* <div
-              className="max-w-sm mx-auto md:max-w-none md:absolute md:left-[40rem] md:ml-16 lg:ml-32 xl:ml-52 mt-12 md:-mt-12a flex justify-center"
-              data-aos="fade-left"
-              data-aos-duration="1100"
-            >
-              <Image
-                src={HeroImage2}
-                className="md:max-w-none"
-                width="584"
-                height="659"
-                priority
-                alt="Hero Illustration"
-              />
-            </div> */}
           </div>
         </div>
       </div>
