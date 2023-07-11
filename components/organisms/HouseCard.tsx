@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import { IoBedOutline } from 'react-icons/io5';
+import { BiBath } from 'react-icons/bi';
 
 interface House {
   fields: {
@@ -14,6 +16,9 @@ interface House {
     slug?: string;
     RECORD_ID?: string;
     cover_photo?: any;
+    Slaapkamers?: string;
+    Badkamers?: string;
+    M2?: string;
   };
 }
 
@@ -35,6 +40,9 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
     slug,
     RECORD_ID,
     cover_photo,
+    Slaapkamers,
+    Badkamers,
+    M2,
   } = house.fields;
 
   const getImageUrl = () => {
@@ -74,10 +82,59 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                   {Naam}
                 </div>
               )}
+              <div className="flex flex-row gap-4 mb-2">
+                {Slaapkamers && (
+                  <div className="flex flex-row gap-2 items-center">
+                    <IoBedOutline className="text-blue-950" size={20} />
+                    <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                      {Slaapkamers}
+                    </p>
+                  </div>
+                )}
+                {Badkamers && (
+                  <div className="flex flex-row gap-2 items-center">
+                    <BiBath className="text-blue-950" size={20} />
+                    <p className="ttext-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                      {Badkamers}
+                    </p>
+                  </div>
+                )}
+                {M2 && (
+                  <div className="flex flex-row gap-2 items-center">
+                    <span
+                      className=" text-blue-950 border border-blue-950 text-sm"
+                      style={{
+                        padding: '0 4px',
+                      }}
+                    >
+                      M²
+                    </span>
+                    <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                      {M2}
+                    </p>
+                  </div>
+                )}
+              </div>
               {Omschrijving && (
                 <p className="text-gray-700 text-base">{Omschrijving}</p>
               )}
             </div>
+
+            {/* {fields['M2'] && (
+                <div className="flex flex-row gap-2 items-center">
+                  <span
+                    className=" text-blue-950 border border-blue-950 text-sm"
+                    style={{
+                      padding: '0 4px',
+                    }}
+                  >
+                    M²
+                  </span>
+                  <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                    {fields['M2']}
+                  </p>
+                </div>
+              )} */}
             <div className="px-6 py-4">
               {Huursom && (
                 <span className="inline-block bg-blue-950 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">

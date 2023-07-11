@@ -19,33 +19,25 @@ export default function Hero() {
           {/* Hero content */}
           <div className="relative max-w-xl mx-auto md:max-w-none text-center flex flex-col md:flex-row">
             {/* Content */}
-            <div className="md:w-[640px]">
+            <div className="md:w-[800px]">
               <h1
                 className="h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl text-white lg:text-5xl xl:text-6xl"
                 data-aos="fade-right"
+                data-aos-delay="200"
               >
-                Vind jouw ideale woning, verkoop met gemak of laat jouw vastgoed
-                <span
+                Verhuur | Beheer | Aanhuur
+                {/* <span
                   className="relative inline-flex text-white h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  bg-blue-950 px-3"
                   data-aos="fade-right"
-                >
-                  <svg
-                    className="absolute left-0 top-full -mt-4 max-w-full -z-10"
-                    width="220"
-                    height="24"
-                    viewBox="0 0 220 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  ></svg>
-                  professioneel beheren.
-                </span>
+                ></span> */}
               </h1>
-              <p
+              {/* <p
                 className="text-2xl text-white mb-10 font-cabinet-grotesk font-bold"
                 data-aos="fade-right"
                 data-aos-delay="200"
               >
                 Linden Vastgoed jouw partner in vastgoed.
-              </p>
+              </p> */}
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-20"
                 data-aos="fade-right"
@@ -62,9 +54,9 @@ export default function Hero() {
                 </div>
                 <div>
                   <Link
-                    className="btn text-gray-600 bg-white hover:bg-blue-100 hover:text-blue-600 w-full shadow-sm"
-                    href="/aanhuur"
-                    data-aos="fade-up"
+                    className="btn text-white bg-blue-300 hover:bg-blue-600 w-full shadow-sm "
+                    href="/onze-diensten"
+                    data-aos="fade-right"
                   >
                     Aanhuur
                   </Link>

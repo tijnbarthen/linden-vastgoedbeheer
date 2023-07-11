@@ -147,7 +147,7 @@ export default async function Page({ params }: { params: any }) {
                 } w-full shadow-sm`}
                 disabled={fields.Status === 'Verhuurd' ? false : false}
               >
-                Bezichtiging
+                Huurvoorstel
               </button>
               <button
                 className={`btn-sm text-white ${
@@ -181,14 +181,9 @@ export default async function Page({ params }: { params: any }) {
 }
 
 function RentalProposalForm({ house }: { house: any }) {
-  // const [offer, setOffer] = useState('');
-  // const [startDate, setStartDate] = useState('');
-  // const [numberOfTenants, setNumberOfTenants] = useState(1);
-  // const [agreementConfirmation, setAgreementConfirmation] = useState(false);
-
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    // Voeg hier de logica toe om het formulier te verwerken
+    // Add logic to handle form submission
   };
 
   return (
@@ -205,10 +200,7 @@ function RentalProposalForm({ house }: { house: any }) {
             <h2 className="text-3xl font-semibold leading-7 text-gray-900 font-cabinet-grotesk">
               {house.Naam}
             </h2>
-            <p className="mt-6 font-cabinet-grotesk  md:w-[400px]">
-              Beantwoord onderstaande vragen, zodat we jouw voorstel zo snel
-              mogelijk kunnen verwerken.
-            </p>
+            {/* Form fields */}
             <div className="space-y-8 mt-10">
               <div>
                 <label
@@ -224,10 +216,10 @@ function RentalProposalForm({ house }: { house: any }) {
                     type="text"
                     autoComplete="street-address"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    defaultValue={house.Adres}
                   />
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="rent"
@@ -240,12 +232,12 @@ function RentalProposalForm({ house }: { house: any }) {
                     id="rent"
                     name="rent"
                     type="text"
-                    disabled
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 bg-gray-100 sm:text-sm sm:leading-6"
+                    defaultValue={house.Huursom}
+                    disabled
                   />
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="offer"
@@ -258,12 +250,12 @@ function RentalProposalForm({ house }: { house: any }) {
                     id="offer"
                     name="offer"
                     type="number"
-                    value="1000"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6"
+                    defaultValue=""
+                    required
                   />
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="start-date"
@@ -277,10 +269,11 @@ function RentalProposalForm({ house }: { house: any }) {
                     name="start-date"
                     type="date"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    defaultValue=""
+                    required
                   />
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="guarantee"
@@ -293,13 +286,12 @@ function RentalProposalForm({ house }: { house: any }) {
                     id="guarantee"
                     name="guarantee"
                     type="text"
-                    disabled
-                    value={'€' + 1000 * 2}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    defaultValue={'€' + house.Waarborgsom * 2}
+                    disabled
                   />
                 </div>
               </div>
-
               <div>
                 <label
                   htmlFor="renters"
@@ -312,35 +304,30 @@ function RentalProposalForm({ house }: { house: any }) {
                     id="renters"
                     name="renters"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    defaultValue="1"
                   >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>+5</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="+5">+5</option>
                   </select>
                 </div>
               </div>
-
               <div>
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    {/* <LockClosedIcon
-                      className="h-5 w-5 text-indigo-600"
-                      aria-hidden="true"
-                    /> */}
+                    <input
+                      id="privacy"
+                      name="privacy"
+                      type="checkbox"
+                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      required
+                    />
                   </div>
                   <div className=" text-sm leading-6">
                     <div className="flex flex-row items-center">
-                      <div className="mr-2">
-                        <input
-                          id="privacy"
-                          name="privacy"
-                          type="checkbox"
-                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                        />
-                      </div>
                       <label
                         htmlFor="privacy"
                         className="font-medium text-gray-900"
@@ -348,7 +335,6 @@ function RentalProposalForm({ house }: { house: any }) {
                         Bevestig Privacy
                       </label>
                     </div>
-
                     <p className="text-gray-500">
                       Ik bevestig dat ik de privacy policy heb gelezen en ermee
                       akkoord ga.
@@ -356,11 +342,10 @@ function RentalProposalForm({ house }: { house: any }) {
                   </div>
                 </div>
               </div>
-
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="rounded-3xl bg-blue-300 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Versturen
                 </button>

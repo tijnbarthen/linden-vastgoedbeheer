@@ -24,7 +24,16 @@ async function fetchHouses() {
 
   const { records } = data;
 
-  return records;
+  // Sort the records based on the Status field
+  const sortedRecords = records.sort((a, b) => {
+    const statusA = a.fields.Status === 'Te huur' ? -1 : 1;
+    const statusB = b.fields.Status === 'Te huur' ? -1 : 1;
+    return statusA - statusB;
+  });
+
+  console.log(sortedRecords);
+
+  return sortedRecords;
 }
 
 export default async function Page() {
