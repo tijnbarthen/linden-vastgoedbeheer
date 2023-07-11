@@ -31,8 +31,6 @@ async function fetchHouses() {
     return statusA - statusB;
   });
 
-  console.log(sortedRecords);
-
   return sortedRecords;
 }
 

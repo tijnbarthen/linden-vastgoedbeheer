@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { IoBedOutline } from 'react-icons/io5';
 import { BiBath } from 'react-icons/bi';
+import Image from 'next/image';
 
 interface House {
   fields: {
@@ -69,10 +70,13 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
           className={`flex flex-col rounded-lg shadow-lg bg-white h-full items-stretch ${className}`}
         >
           {getImageUrl() && (
-            <img
+            <Image
               className="w-full h-56 object-cover rounded-lg"
               src={getImageUrl()}
-              alt={Naam}
+              alt={JSON.stringify(Naam)}
+              width={500}
+              height={300}
+              quality={50}
             />
           )}
           <div className="flex flex-col justify-between flex-grow">

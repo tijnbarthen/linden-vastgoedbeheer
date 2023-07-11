@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 export default function CtaSection() {
   const pathname = usePathname();
-  console.log(pathname);
 
   if (pathname === '/contact' || pathname.includes('/aanbod')) {
     return <></>;

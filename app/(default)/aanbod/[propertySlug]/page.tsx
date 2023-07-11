@@ -81,6 +81,14 @@ export default async function Page({ params }: { params: any }) {
 
     const houseData = await getHouseData(propertySlug);
 
+    if (!houseData) {
+      return (
+        <div className="bg-white">
+          <h2>Something Went Wrong</h2>
+        </div>
+      );
+    }
+
     const { fields } = houseData;
 
     return (
