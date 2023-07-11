@@ -22,10 +22,10 @@ export default function CtaSection() {
             Neem contact met ons op voor
             <span className="text-blue-950"> uw vastgoedbehoeften</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white">
+          {/* <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white">
             Maak contact met ons team om uw wensen te bespreken en uw zoektocht
             naar het perfecte pand te starten.
-          </p>
+          </p> */}
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
               href="/contact"

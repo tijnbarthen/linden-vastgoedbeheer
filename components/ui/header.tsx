@@ -55,11 +55,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
-            <Link
-              href="/"
-              className="block group"
-              aria-label={'Linden Vastgoed'}
-            >
+            <Link href="/" aria-label={'Linden Vastgoed'}>
               <Image
                 src={Logo}
                 width={180}
@@ -108,7 +104,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           )}
         </div>
         {/* Mobile navigation */}
-        {nav && isOpen && (
+        {nav && (
           <nav className={`lg:hidden ${isOpen ? 'block' : 'hidden'}`}>
             <ul className="flex flex-col items-end py-1">
               {navLinks.map((item, index) => (

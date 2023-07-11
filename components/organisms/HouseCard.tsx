@@ -13,6 +13,7 @@ interface House {
     Buitenruimte?: string[];
     slug?: string;
     RECORD_ID?: string;
+    cover_photo?: any;
   };
 }
 
@@ -33,7 +34,17 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
     id,
     slug,
     RECORD_ID,
+    cover_photo,
   } = house.fields;
+
+  const getImageUrl = () => {
+    if (cover_photo) {
+      return cover_photo[0]?.thumbnails?.large.url;
+    } else if (Photos && Photos.length > 0) {
+      return Photos[0]?.thumbnails?.large.url;
+    }
+    return null;
+  };
 
   return (
     <Link href="/aanbod/[id]" as={`/aanbod/${RECORD_ID}`}>
@@ -49,10 +60,10 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
         <div
           className={`flex flex-col rounded-lg shadow-lg bg-white h-full items-stretch ${className}`}
         >
-          {Photos && Photos[0] && (
+          {getImageUrl() && (
             <img
               className="w-full h-56 object-cover rounded-lg"
-              src={Photos[0]?.thumbnails?.large.url}
+              src={getImageUrl()}
               alt={Naam}
             />
           )}

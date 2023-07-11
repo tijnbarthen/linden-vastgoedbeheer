@@ -7,9 +7,9 @@ export default function Hero() {
   return (
     <section className="relative">
       {/* Bg */}
-      <div className="absolute inset-0 bg-black opacity-30"></div>
+      {/* <div className="absolute inset-0 bg-black opacity-5"></div> */}
       <img
-        src="https://images.unsplash.com/photo-1459679749680-18eb1eb37418?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80"
+        src="https://images.unsplash.com/photo-1536880756060-98a6a140f0a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
