@@ -25,7 +25,7 @@ async function fetchHouses() {
   const { records } = data;
 
   // Sort the records based on the Status field
-  const sortedRecords = records.sort((a, b) => {
+  const sortedRecords = records.sort((a: any, b: any) => {
     const statusA = a.fields.Status === 'Te huur' ? -1 : 1;
     const statusB = b.fields.Status === 'Te huur' ? -1 : 1;
     return statusA - statusB;
