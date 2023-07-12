@@ -2,47 +2,53 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import Logo from '@/public/images/logo-linden.png';
+import CtaSection from '../molecules/CtaSection';
+
+const navLinks = [
+  {
+    title: 'Home',
+    path: '/',
+  },
+  {
+    title: 'Aanbod',
+    path: '/aanbod',
+  },
+  {
+    title: 'Over ons',
+    path: '/over-ons',
+  },
+  {
+    title: 'Onze diensten',
+    path: '/onze-diensten',
+  },
+  {
+    title: 'Aanhuur',
+    path: '/aanhuur',
+  },
+  {
+    title: 'Onderhoud',
+    path: '/onderhoud',
+  },
+  {
+    title: 'Contact',
+    path: '/contact',
+  },
+];
 
 export default function Footer() {
   return (
     <footer>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-8 md:py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
+        <CtaSection />
+        <div className="py-8 md:py-12 border-t border-gray-900/10">
           {/* Top area */}
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-12 md:mb-6">
             <div className="shrink-0 mr-4">
               {/* Logo */}
-              <Link
-                className="inline-flex group mb-8 sm:mb-0"
-                href="/"
-                aria-label="Cruip"
-              >
+              <Link className="inline-flex group mb-8 sm:mb-0" href="/">
                 <Image src={Logo} width={200} height={120} alt="logo" />
               </Link>
             </div>
-            <form className="w-full max-w-sm">
-              <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none items-center">
-                <div className="flex flex-col">
-                  <a className="mb-2 font-bold">
-                    Schrijf je in voor onze nieuwsbrief!
-                  </a>
-                  <input
-                    type="email"
-                    className="form-input w-full mb-2 sm:mb-0 sm:mr-2"
-                    placeholder="Your email"
-                    aria-label="Your email"
-                  />
-                </div>
-                <button
-                  className="btn-sm text-white bg-blue-950 hover:bg-blue-600 shadow-sm whitespace-nowrap  ml-2 sm:h-10"
-                  type="submit"
-                >
-                  Inschrijven
-                </button>
-              </div>
-              {/* Success message */}
-              {/* <p class="font-medium text-emerald-600 text-center sm:text-left sm:absolute mt-2 opacity-75 text-sm">Thanks for subscribing!</p> */}
-            </form>
           </div>
           {/* Bottom area */}
           <div className="text-center md:flex md:items-center md:justify-between mb-8 md:mb-6">
@@ -96,30 +102,15 @@ export default function Footer() {
             </ul> */}
             {/* Left links */}
             <div className="text-sm font-medium md:order-1 space-x-6 mb-2 md:mb-0">
-              <a
-                className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                href="#0"
-              >
-                Home
-              </a>
-              <a
-                className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                href="#0"
-              >
-                Aanbod
-              </a>
-              <a
-                className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                href="#0"
-              >
-                Over ons
-              </a>
-              <a
-                className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-                href="#0"
-              >
-                Diensten
-              </a>
+              {navLinks.map((item, index) => (
+                <Link
+                  key={index}
+                  className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
+                  href={item.path}
+                >
+                  {item.title}
+                </Link>
+              ))}
             </div>
           </div>
 
