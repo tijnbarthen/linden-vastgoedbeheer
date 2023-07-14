@@ -5,7 +5,7 @@ import HeroImage2 from '@/public/images/hero-image-2.png';
 
 export default function Hero() {
   return (
-    <section className="relative">
+    <section className="relative min-h-[60vh]">
       {/* Bg */}
       {/* <div className="absolute inset-0 bg-black opacity-5"></div> */}
       <img

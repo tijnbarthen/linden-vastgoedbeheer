@@ -35,7 +35,13 @@ const fetchData = async () => {
       .filter((record: any) => record.fields.Hoofdpagina === true)
       .slice(0, 9);
 
-    return filteredRecords;
+    const sortedRecords = filteredRecords.sort((a: any, b: any) => {
+      const statusA = a.fields.Status === 'Te huur' ? -1 : 1;
+      const statusB = b.fields.Status === 'Te huur' ? -1 : 1;
+      return statusA - statusB;
+    });
+
+    return sortedRecords;
   } catch (error) {
     console.error('Error fetching records:', error);
   }
@@ -43,8 +49,6 @@ const fetchData = async () => {
 
 export default async function Home() {
   const res = await fetchData();
-
-  console.log(res);
 
   if (!res) {
     return (

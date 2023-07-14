@@ -17,13 +17,13 @@ export default function ImageComponent({ images }: { images: any }) {
         {images.map((image: any) => (
           <div>
             <img
-              className="w-full"
+              className="w-full h-auto"
               alt={`img of ${image.thumbnails.full.url}`}
               src={image.url}
               key={image.id}
               style={{
                 maxHeight: '500px',
-                objectFit: 'cover',
+                objectFit: 'contain',
               }}
             />
           </div>

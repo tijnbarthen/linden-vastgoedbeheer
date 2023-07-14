@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { IoBedOutline } from 'react-icons/io5';
 import { BiBath } from 'react-icons/bi';
 import Image from 'next/image';
+import { MdBalcony, MdRoofing } from 'react-icons/md';
+import { GiGrass } from 'react-icons/gi';
 
 interface House {
   fields: {
@@ -118,6 +120,44 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                     </p>
                   </div>
                 )}
+                {Buitenruimte && (
+                  <div className="flex flex-row gap-4 items-center">
+                    {Buitenruimte.map((item: any) => {
+                      if (item === 'Balkon') {
+                        return (
+                          <div key={item} className="flex flex-row gap-1">
+                            <MdBalcony className="text-blue-950" size={20} />
+                            <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                              {item}
+                            </p>
+                          </div>
+                        );
+                      } else if (item === 'Tuin') {
+                        return (
+                          <div key={item} className="flex flex-row gap-1">
+                            <GiGrass className="text-blue-950 mb-1" size={20} />
+                            <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                              {item}
+                            </p>
+                          </div>
+                        );
+                      } else if (item === 'Dakterras') {
+                        return (
+                          <div key={item} className="flex flex-row gap-1">
+                            <MdRoofing
+                              className="text-blue-950 mb-1"
+                              size={20}
+                            />
+                            <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                              {item}
+                            </p>
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                )}
               </div>
               {Omschrijving && (
                 <p className="text-gray-700 text-base">{Omschrijving}</p>
@@ -139,7 +179,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                   </p>
                 </div>
               )} */}
-            <div className="px-6 py-4">
+            {/* <div className="px-6 py-4">
               {Huursom && (
                 <span className="inline-block bg-blue-950 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">
                   €{Huursom}
@@ -155,7 +195,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                   {Buitenruimte.splice(0, 2).join(', ')}
                 </span>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
