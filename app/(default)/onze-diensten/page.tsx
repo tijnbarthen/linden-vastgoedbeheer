@@ -161,7 +161,10 @@ import { TbDoorEnter as TbDoorEnterIcon } from 'react-icons/tb';
 export default function Page() {
   return (
     <>
-      <Header title="Onze Diensten" />
+      <Header
+        title="Onze Diensten"
+        image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+      />
       <div className="bg-white py-6">
         <OnzeDiensten withTitle={false} />
       </div>

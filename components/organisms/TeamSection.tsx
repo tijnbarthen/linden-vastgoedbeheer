@@ -2,8 +2,7 @@ const people = [
   {
     name: 'Dominique van der Linden',
     role: 'Eigennaresse',
-    imageUrl:
-      'https://www.lindenvastgoedbeheer.nl/wp-content/uploads/2022/10/IMG_4858-2-1-1024x1019.jpg',
+    imageUrl: 'images/do-van-der-linden.jpg',
     bio: '',
     linkedinUrl: '#',
   },
@@ -37,9 +36,12 @@ export default function TeamSection() {
             {people.map((person) => (
               <li key={person.name}>
                 <img
-                  className="aspect-[3/2] w-full rounded-2xl object-cover"
+                  className="aspect-[3/3] w-full rounded-2xl object-cover"
                   src={person.imageUrl}
-                  alt=""
+                  alt={person.name}
+                  style={{
+                    objectPosition: 'center top',
+                  }}
                 />
                 <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900">
                   {person.name}

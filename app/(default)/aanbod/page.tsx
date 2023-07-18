@@ -42,7 +42,7 @@ export default async function Page() {
       <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
         <Header
           title="Aanbod"
-          image="https://images.unsplash.com/photo-1534352267890-0c7d8e0630bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+          image="https://images.unsplash.com/photo-1580996378027-23040f16f157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
         />
         <div className="container max-w-6xl mx-auto py-6  px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">

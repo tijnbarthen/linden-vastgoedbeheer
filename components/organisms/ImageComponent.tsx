@@ -13,17 +13,18 @@ export default function ImageComponent({ images }: { images: any }) {
         autoPlay
         interval={5000}
         showThumbs={false}
+        dynamicHeight
       >
         {images.map((image: any) => (
-          <div>
+          <div className="max-h-[400xp]">
             <img
-              className="w-full"
+              className="object-contain"
               alt={`img of ${image.thumbnails.full.url}`}
               src={image.url}
               key={image.id}
               style={{
-                maxHeight: '500px',
-                objectFit: 'cover',
+                objectFit: 'contain',
+                maxHeight: '400px',
               }}
             />
           </div>

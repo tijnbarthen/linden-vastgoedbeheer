@@ -4,7 +4,10 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 // import { useState } from 'react';
 import { IoBedOutline } from 'react-icons/io5';
 import { BiBath } from 'react-icons/bi';
+import { MdBalcony } from 'react-icons/md';
+import { GiGrass } from 'react-icons/gi';
 import ImageComponent from '@/components/organisms/ImageComponent';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   try {
@@ -109,7 +112,7 @@ export default async function Page({ params }: { params: any }) {
               </h1>
               {fields.Huursom && (
                 <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
-                  € {fields.Huursom}
+                  € {fields.Huursom} excl. per maand
                 </p>
               )}
             </div>
@@ -145,9 +148,42 @@ export default async function Page({ params }: { params: any }) {
                   </p>
                 </div>
               )}
+              {fields.Buitenruimte && (
+                <div className="flex flex-row gap-4 items-center">
+                  {fields.Buitenruimte.map((item: any) => {
+                    if (item === 'Balkon') {
+                      return (
+                        <>
+                          <MdBalcony
+                            className="text-blue-950"
+                            size={20}
+                            key={item}
+                          />
+                          <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                            {item}
+                          </p>
+                        </>
+                      );
+                    } else if (item === 'Tuin') {
+                      return (
+                        <>
+                          <GiGrass
+                            className="text-blue-950 mb-1"
+                            size={20}
+                            key={item}
+                          />
+                          <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
+                            {item}
+                          </p>
+                        </>
+                      );
+                    }
+                  })}
+                </div>
+              )}
             </div>
             <div className="flex flex-row gap-6">
-              <button
+              {/* <button
                 className={`btn-sm text-white ${
                   fields.Status === 'Verhuurd'
                     ? 'bg-slate-600'
@@ -156,17 +192,19 @@ export default async function Page({ params }: { params: any }) {
                 disabled={fields.Status === 'Verhuurd' ? false : false}
               >
                 Huurvoorstel
-              </button>
-              <button
-                className={`btn-sm text-white ${
-                  fields.Status === 'Verhuurd'
-                    ? 'bg-slate-600'
-                    : 'bg-blue-950 hover:bg-blue-600'
-                } w-full shadow-sm`}
-                disabled={fields.Status === 'Verhuurd' ? false : false}
-              >
-                Contact
-              </button>
+              </button> */}
+              <Link href="/contact">
+                <button
+                  className={`btn-sm text-white ${
+                    fields.Status === 'Verhuurd'
+                      ? 'bg-slate-600'
+                      : 'bg-blue-950 hover:bg-blue-600'
+                  } w-full shadow-sm`}
+                  disabled={fields.Status === 'Verhuurd' ? false : false}
+                >
+                  Contact
+                </button>
+              </Link>
             </div>
             <div>
               {fields.Omschrijving && (
@@ -177,7 +215,7 @@ export default async function Page({ params }: { params: any }) {
             </div>
           </div>
         </div>
-        {fields.Status !== 'Verhuurd' && <RentalProposalForm house={fields} />}
+        {/* {fields.Status !== 'Verhuurd' && <RentalProposalForm house={fields} />} */}
       </div>
     );
   } catch (error) {
