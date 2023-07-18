@@ -1,7 +1,10 @@
+'use client';
+
 import Header from '@/components/organisms/Header';
 import Link from 'next/link';
 import { BiPhone as PhoneIcon } from 'react-icons/bi';
 import { BiEnvelope as EnvelopeIcon } from 'react-icons/bi';
+import { useForm } from 'react-hook-form';
 
 export default function Page() {
   return (
@@ -13,6 +16,34 @@ export default function Page() {
 }
 
 function Contact() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data: any) => {
+    try {
+      console.log(data);
+      const response = await fetch('/api/airtable', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        console.log('Form data sent successfully');
+      } else {
+        console.log('Form data sending failed');
+      }
+    } catch (error) {
+      console.log('Error sending form data:', error);
+    }
+    // Submit logic goes here
+  };
+
   return (
     <div className="relative bg-white max-w-6xl mx-auto md:px-6 py-6">
       <div className="absolute rounded-lg">
@@ -78,22 +109,28 @@ function Contact() {
             </p> */}
           </div>
         </div>
+
         <div className="bg-white px-6 py-16 lg:col-span-3 lg:px-8 lg:py-24 xl:pl-12">
           <div className="mx-auto max-w-lg lg:max-w-none">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl mb-2">
               Stuur ons een bericht
             </h2>
-            <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="grid grid-cols-1 gap-y-6"
+            >
               <div>
                 <label htmlFor="full-name" className="sr-only">
                   Volledige naam
                 </label>
                 <input
                   type="text"
-                  name="full-name"
                   id="full-name"
                   autoComplete="name"
-                  className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  {...register('full-name', { required: true })}
+                  className={`block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${
+                    errors['full-name'] ? 'border-red-500' : ''
+                  }`}
                   placeholder="Volledige naam"
                 />
               </div>
@@ -103,10 +140,12 @@ function Contact() {
                 </label>
                 <input
                   id="email"
-                  name="email"
                   type="email"
                   autoComplete="email"
-                  className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  {...register('email', { required: true })}
+                  className={`block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${
+                    errors.email ? 'border-red-500' : ''
+                  }`}
                   placeholder="E-mail"
                 />
               </div>
@@ -116,10 +155,12 @@ function Contact() {
                 </label>
                 <input
                   type="text"
-                  name="phone"
                   id="phone"
                   autoComplete="tel"
-                  className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  {...register('phone', { required: true })}
+                  className={`block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${
+                    errors.phone ? 'border-red-500' : ''
+                  }`}
                   placeholder="Telefoon"
                 />
               </div>
@@ -129,13 +170,16 @@ function Contact() {
                 </label>
                 <textarea
                   id="message"
-                  name="message"
                   rows={4}
-                  className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  {...register('message', { required: true })}
+                  className={`block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 ${
+                    errors.message ? 'border-red-500' : ''
+                  }`}
                   placeholder="Bericht"
                   defaultValue={''}
                 />
               </div>
+              <input type="hidden" value="Contact" {...register('formType')} />
               <div>
                 <button
                   type="submit"

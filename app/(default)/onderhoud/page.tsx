@@ -1,11 +1,15 @@
+'use client';
+
+import { useState } from 'react';
 import Header from '@/components/organisms/Header';
+import { useForm } from 'react-hook-form';
 
 export default function Page() {
   return (
     <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
       <Header
         title="Onderhoud"
-        image="https://images.unsplash.com/photo-1606676539940-12768ce0e762?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+        image="https://images.unsplash.com/photo-1606676539940-12768ce0e762?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
         imagePosition="center center"
       />
       <Voorbeeld />
@@ -14,10 +18,56 @@ export default function Page() {
 }
 
 function Voorbeeld() {
+  const [uploadedFile, setUploadedFile] = useState(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data: any) => {
+    const formData = new FormData();
+    try {
+      for (const key in data) {
+        formData.append(key, data[key]);
+      }
+
+      if (uploadedFile) {
+        console.log('Uploaded file:', uploadedFile);
+        // formData.append('file-upload', uploadedFile, uploadedFile?.name);
+      }
+
+      console.log('Form data:', formData);
+
+      const response = await fetch('/api/airtable', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log('Form data sent successfully');
+      } else {
+        console.log('Form data sending failed');
+      }
+    } catch (error) {
+      console.log('Error sending form data:', error);
+    }
+  };
+
+  const handleFileUpload = (event: any) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setUploadedFile(file);
+    }
+  };
+
   return (
-    <form className="max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4">
+    <form
+      className="max-w-6xl mx-auto md:py-12 md:px-6 py-9 px-4"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="space-y-12">
-        <div className=" pb-12">
+        <div className="pb-12">
           <h2 className="text-3xl font-semibold leading-7 text-gray-900">
             Melding onderhoud
           </h2>
@@ -36,10 +86,12 @@ function Voorbeeld() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register('voornaam', { required: true })}
+                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${
+                    errors.voornaam ? 'border-red-500' : ''
+                  }`}
                 />
               </div>
             </div>
@@ -54,10 +106,12 @@ function Voorbeeld() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="last-name"
                   id="last-name"
                   autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register('achternaam', { required: true })}
+                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${
+                    errors.achternaam ? 'border-red-500' : ''
+                  }`}
                 />
               </div>
             </div>
@@ -72,10 +126,12 @@ function Voorbeeld() {
               <div className="mt-2">
                 <input
                   id="email"
-                  name="email"
                   type="email"
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register('email', { required: true })}
+                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${
+                    errors.email ? 'border-red-500' : ''
+                  }`}
                 />
               </div>
             </div>
@@ -90,15 +146,16 @@ function Voorbeeld() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="phone"
                   id="phone"
                   autoComplete="tel"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register('telefoon_nummer', { required: true })}
+                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${
+                    errors.telefoon_nummer ? 'border-red-500' : ''
+                  }`}
                 />
               </div>
             </div>
 
-            {/* Additional Fields */}
             <div className="sm:col-span-3">
               <label
                 htmlFor="address"
@@ -109,8 +166,8 @@ function Voorbeeld() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="address"
                   id="address"
+                  {...register('adres')}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -137,6 +194,7 @@ function Voorbeeld() {
                         name="file-upload"
                         type="file"
                         className="sr-only"
+                        onChange={handleFileUpload}
                       />
                     </label>
                     <p className="pl-1">or drag and drop</p>
@@ -158,8 +216,8 @@ function Voorbeeld() {
               <div className="mt-2">
                 <textarea
                   id="maintenance-details"
-                  name="maintenance-details"
                   rows={3}
+                  {...register('onderhoudsdetails')}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
                 />
@@ -171,6 +229,7 @@ function Voorbeeld() {
           </div>
         </div>
       </div>
+      <input type="hidden" value="Onderhoud" {...register('formType')} />
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button
