@@ -38,7 +38,7 @@ export async function generateStaticParams() {
     // Handle the error
     console.error('Error in generateStaticParams:', error);
     // You can choose to throw the error again or return a default value
-    throw error;
+    // throw error;
   }
 }
 
@@ -64,7 +64,7 @@ const getHouseData = async (propertySlug: string) => {
     });
 
     if (!res.ok) {
-      throw new Error('Something went wrong');
+      return <div>Somethig went wrong</div>;
     }
 
     const data = await res.json();
