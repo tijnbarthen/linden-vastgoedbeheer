@@ -11,11 +11,12 @@ function ChangeInRealEstate() {
         <h2 className="h2 text-4xl text-left mb-6">
           Tijd voor verandering in de makelaardij!
         </h2>
+        change the following p's
         <p className="text-lg mb-4">
-          Wij geloven dat dit beter kan en moet, wij willen af van de typische
-          term: 'huisjesmelkers'. Er zijn genoeg eigenaren die wél investeren in
-          hun appartement en vinden het belangrijk dat er een goede
-          verstandhouding is tussen huurder en verhuurder.
+          Wij willen af van de typische term: 'huisjesmelkers'. Er zijn genoeg
+          eigenaren die wél investeren in hun appartement en die vinden het
+          belangrijk dat er een goede verstandhouding is tussen huurder en
+          verhuurder.
         </p>
         <p className="text-lg mb-4">
           Dit is precies waar wij ons op focussen: persoonlijke aanpak, actief
@@ -25,17 +26,10 @@ function ChangeInRealEstate() {
         </p>
         <p className="text-lg mb-4">
           Bij ons heeft u een vast aanspreekpunt met kennis van zaken. Wij geven
-          marktconform advies en voegen graag onze creativiteit toe door de
-          woning te verduurzamen, zodat u als eigenaar de woning in de vrije
-          sector kunt verhuren en de huurder waar krijgt voor zijn geld.
+          marktconform advies en voegen graag onze creativiteit toe bij de
+          verhuur van uw woning.
         </p>
-        <p className="text-lg mb-4">
-          Wij ontzorgen u graag en zijn ervan bewust dat het een snelle markt
-          betreft waarin wij ons bevinden. U wilt geen leegstand. Wij zorgen
-          ervoor dat de zaken secuur en zakelijk van A tot Z worden afgehandeld.
-          Wij stellen de wensen van onze klanten voorop door een geschikte
-          kandidaat voor de woning te vinden.
-        </p>
+        <p className="text-lg mb-4">Wij ontzorgen u graag!</p>
         <p className="text-lg">
           U kunt{' '}
           <Link className="underline text-blue-600" href={'/contact'}>
