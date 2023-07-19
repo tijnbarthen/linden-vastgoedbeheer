@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { BiPhone as PhoneIcon } from 'react-icons/bi';
 import { BiEnvelope as EnvelopeIcon } from 'react-icons/bi';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 export default function Page() {
   return (
@@ -19,10 +20,15 @@ function Contact() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data: any) => {
+    toast.success('Formulier verzenden', {
+      duration: 5000,
+      position: 'top-center',
+    });
     try {
       console.log(data);
       const response = await fetch('/api/airtable', {
@@ -35,13 +41,21 @@ function Contact() {
 
       if (response.ok) {
         console.log('Form data sent successfully');
+        toast.success('Formulier verzonden!', {
+          duration: 5000,
+          position: 'top-center',
+        });
+        reset();
       } else {
+        toast.error('Formulier niet verzonden', {
+          duration: 5000,
+          position: 'top-center',
+        });
         console.log('Form data sending failed');
       }
     } catch (error) {
       console.log('Error sending form data:', error);
     }
-    // Submit logic goes here
   };
 
   return (
