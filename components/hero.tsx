@@ -5,7 +5,7 @@ import HeroImage2 from '@/public/images/hero-image-2.png';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[60vh]">
+    <section className="relative min-h-[70vh]">
       {/* Bg */}
       {/* <div className="absolute inset-0 bg-black opacity-5"></div> */}
       <img
@@ -16,7 +16,7 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-full flex justify-center items-center">
         {/* Hero content */}
-        <div className="max-w-xl mx-auto md:max-w-none text-center flex flex-col justify-center items-center md:flex-row min-h-[60vh] h-full">
+        <div className="max-w-xl mx-auto md:max-w-none text-center flex flex-col justify-center items-center md:flex-row min-h-[70vh] h-full">
           {/* Content */}
           <div className="md:w-[800px]">
             <h1

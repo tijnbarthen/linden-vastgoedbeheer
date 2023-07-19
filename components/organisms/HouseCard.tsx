@@ -81,12 +81,18 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
               quality={50}
             />
           )}
+
           <div className="flex flex-col justify-between flex-grow">
             <div className="px-6 py-4">
               {Naam && (
                 <div className="font-bold text-xl mb-2 font-cabinet-grotesk text-blue-950">
                   {Naam}
                 </div>
+              )}
+              {Huursom && (
+                <p className="text-base leading-4 text-gray-600 mb-4  font-bold ">
+                  € {Huursom} excl. per maand
+                </p>
               )}
               <div className="flex flex-row gap-4 mb-2">
                 {Slaapkamers && (
