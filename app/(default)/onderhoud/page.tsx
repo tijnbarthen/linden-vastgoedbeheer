@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Header from '@/components/organisms/Header';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 export default function Page() {
   return (
@@ -22,11 +23,17 @@ function Voorbeeld() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data: any) => {
     const formData = new FormData();
+    toast.success('Formulier verzenden', {
+      duration: 5000,
+      position: 'top-center',
+    });
+
     try {
       for (const key in data) {
         formData.append(key, data[key]);
@@ -45,8 +52,18 @@ function Voorbeeld() {
       });
 
       if (response.ok) {
+        toast.success('Formulier verzonden!', {
+          duration: 5000,
+          position: 'top-center',
+        });
+        reset();
         console.log('Form data sent successfully');
       } else {
+        toast.error('Formulier niet verzonden, probeer later opnieuw', {
+          duration: 5000,
+          position: 'top-center',
+        });
+
         console.log('Form data sending failed');
       }
     } catch (error) {

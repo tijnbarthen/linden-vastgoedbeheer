@@ -2,6 +2,7 @@
 
 import Header from '@/components/organisms/Header';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 export default function Page() {
   return (
@@ -16,10 +17,15 @@ function Voorbeeld() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data: any) => {
+    toast.success('Formulier verzonden', {
+      duration: 5000,
+      position: 'top-center',
+    });
     try {
       console.log(data);
       const response = await fetch('/api/airtable', {
@@ -32,6 +38,11 @@ function Voorbeeld() {
 
       if (response.ok) {
         console.log('Form data sent successfully');
+        toast.success('Formulier verzonden!', {
+          duration: 5000,
+          position: 'top-center',
+        });
+        reset();
       } else {
         console.log('Form data sending failed');
       }
