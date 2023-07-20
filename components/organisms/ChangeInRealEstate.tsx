@@ -11,7 +11,6 @@ function ChangeInRealEstate() {
         <h2 className="h2 text-4xl text-left mb-6">
           Tijd voor verandering in de makelaardij!
         </h2>
-        change the following p's
         <p className="text-lg mb-4">
           Wij willen af van de typische term: 'huisjesmelkers'. Er zijn genoeg
           eigenaren die wél investeren in hun appartement en die vinden het
