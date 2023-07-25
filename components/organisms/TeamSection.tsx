@@ -1,16 +1,17 @@
+import Image from 'next/image';
+
 const people = [
   {
     name: 'Dominique van der Linden',
     role: 'Eigennaresse',
-    imageUrl: 'images/do-van-der-linden.jpg',
+    imageUrl: '/images/do-van-der-linden.jpg',
     bio: '',
     linkedinUrl: '#',
   },
   {
     name: 'Jenna Wentink',
     role: 'Vastgoedadviseur',
-    imageUrl:
-      'https://www.lindenvastgoedbeheer.nl/wp-content/uploads/2021/02/IMG_3905-1-1024x1024.jpg',
+    imageUrl: '/images/jenna.jpg',
     bio: '',
     linkedinUrl: '#',
   },
@@ -35,10 +36,13 @@ export default function TeamSection() {
           >
             {people.map((person) => (
               <li key={person.name}>
-                <img
+                <Image
                   className="aspect-[3/3] w-full rounded-2xl object-cover"
                   src={person.imageUrl}
                   alt={person.name}
+                  width={300}
+                  quality={50}
+                  height={300}
                   style={{
                     objectPosition: 'center top',
                   }}

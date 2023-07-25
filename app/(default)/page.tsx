@@ -24,7 +24,8 @@ const fetchData = async () => {
     );
 
     if (!res.ok) {
-      throw new Error('Something went wrong');
+      console.error('Error fetching records:', res);
+      return;
     }
 
     const data = await res.json();

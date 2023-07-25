@@ -11,32 +11,21 @@ const features = [
   {
     name: 'Woningverhuur',
     description:
-      'Het betreft een snelle markt waar wij ons in bevinden en spelen hier op een goede manier op in. U wilt geen leegstand en wij zorgen ervoor dat de woning in de vrije sector kan worden verhuurd en vinden op korte termijn een betrouwbare huurder.',
+      'U wilt geen leegstand, daarom zorgen wij ervoor dat de woning op korte termijn wordt bewoond door een betrouwbare huurder.',
     href: '#',
-    items: [
-      'Woning dezelfde dag online',
-      'Beschikbaarheid 7 dagen per week van 09:00 - 21:00',
-      'Advertenties maken',
-      'Servicegericht',
-      'Verduurzamen',
-      'Professionele screening van potentiële huurder',
-      'Inspecties en sleuteloverdracht',
-      'Geen leegstand voor verhuurders',
-      'No cure no pay',
-    ],
     icon: TbDoorEnterIcon,
   },
   {
     name: 'Vastgoedbeheer',
     description:
-      'Wij beheren uw portefeuille op een betrouwbare en accuratie manier. Wij streven naar verduurzaming en daarom ook dat eigenaren die bereid zijn te investeren, dat de woning en huurders.',
+      'Wij beheren uw portefeuille op een professionele en accurate manier. Om u als eigenaar volledig te ontzorgen zijn wij het eerste aanspreekpunt voor de huurder. Wij beschikken over een vast onderhoudsteam dat ingezet kan worden bij eventuele storingen en gebreken in de woning.',
     href: '#',
     icon: MdBusinessCenterIcon,
   },
   {
     name: 'Aanhuur',
     description:
-      'De zoektocht naar een woning is erg lastig tegenwoordig. Wij hebben onze eigen lijst waar de zoekopdracht in terecht komt.',
+      'Droomhuis nog niet gevonden? De zoektocht naar een woning is erg lastig tegenwoordig. Bij ons kunt u een zoekopdracht achterlaten zodat wij samen met u, uw paleis kunnen vinden!',
     href: '#',
     icon: BsSearchIcon,
   },
@@ -50,35 +39,34 @@ const features = [
   {
     name: 'Verkoop',
     description:
-      'Onze professionals begeleiden u in het verkoopproces van uw woning. Wij komen graag bij u langs voor een kosteloos kennismakingsgesprek met waardebepaling.',
+      'Onze professionals begeleiden u in het verkoopproces van uw woning. Wij komen bij u langs voor een kosteloos kennismakingsgesprek met waardebepaling.',
     href: '#',
     icon: MdSellIcon,
   },
   {
-    name: 'Foto’s en video’s maken van woningen',
+    name: "Foto's en video's maken van woningen",
     description:
-      'Wij maken professionele foto’s en video’s van uw woning. Woning dezelfde dag online.',
+      'Wij zorgen ervoor dat de woning op een professionele manier wordt gepresenteerd en zetten de woning dezelfde dag online.',
     href: '#',
     icon: MdPhotoCameraIcon,
   },
   {
-    name: 'Bezichtigingen en beschikbaarheid 7 dagen per week',
-    description:
-      'Wij zijn 7 dagen per week beschikbaar voor bezichtigingen. Wij zorgen ervoor dat de woning op een professionele manier wordt gepresenteerd.',
+    name: 'Bezichtigingen',
+    description: 'Wij zijn 7 dagen per week beschikbaar voor bezichtigingen.',
     href: '#',
     icon: BiCheckboxChecked,
   },
   {
-    name: 'Professionele screening van potentiële huurder',
+    name: 'Huurovereenkomsten',
     description:
-      'Vertrouw op onze professionele screening voor betrouwbare huurders en de perfecte match.',
+      'Naast het volledig uit handen geven van de verhuur kunt u ook alleen het opstellen van een huurovereenkomst door ons laten verzorgen.',
     href: '#',
     icon: BsEnvelopePaper,
   },
   {
     name: 'Inspecties en sleuteloverdracht',
     description:
-      'Vertrouw op ons voor waterdichte huurovereenkomsten en moeiteloze digitale inspectierapporten.',
+      'Voor het uitvoeren van inspecties en de sleuteloverdracht kunt u bij ons terecht, na afloop ontvangt u hiervan een duidelijk inspectierapport.',
     href: '#',
     icon: IoKeySharp,
   },
