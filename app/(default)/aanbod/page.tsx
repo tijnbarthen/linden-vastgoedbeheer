@@ -17,7 +17,7 @@ async function fetchHouses() {
   );
 
   if (!res.ok) {
-    throw new Error('Something went wrong');
+    return null;
   }
 
   const data = await res.json();
@@ -36,6 +36,10 @@ async function fetchHouses() {
 
 export default async function Page() {
   const data = await fetchHouses();
+
+  if (!data) {
+    return <div>Failed to fetch data from Airtable</div>;
+  }
 
   return (
     <>
