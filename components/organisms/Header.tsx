@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 type HeaderProps = {
   title?: string;
   subtitle?: string;
@@ -21,12 +23,12 @@ export default function Header({
       data-aos-delay="200"
     >
       <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8 md:rounded-lg rounded-b-lg">
-        <img
+        <Image
           src={
             image ||
             'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80'
           }
-          alt=""
+          fill={true}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
           style={{
             objectPosition: imagePosition,

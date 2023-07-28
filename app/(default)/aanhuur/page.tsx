@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast';
 export default function Page() {
   return (
     <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
-      <Header title="Aanhuur" image="/images/aanhuur.jpg" />
+      <Header title="Aanhuur" image="/images/contact.jpg" />
       <Voorbeeld />
     </div>
   );

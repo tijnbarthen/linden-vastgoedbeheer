@@ -41,7 +41,6 @@ export default function TeamSection() {
                   src={person.imageUrl}
                   alt={person.name}
                   width={300}
-                  quality={50}
                   height={300}
                   style={{
                     objectPosition: 'center top',
