@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 export default function Page() {
   return (
     <div className="bg-white font-cabinet-grotesk  h-full">
-      <Header title="Contact" />
+      <Header title="Contact" image="/images/contact.jpg" />
       <Contact />
     </div>
   );
@@ -30,7 +30,6 @@ function Contact() {
       position: 'top-center',
     });
     try {
-      console.log(data);
       const response = await fetch('/api/airtable', {
         method: 'POST',
         headers: {

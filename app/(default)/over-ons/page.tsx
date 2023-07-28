@@ -12,7 +12,7 @@ export default function Page() {
     <div className="bg-white min-h-screen font-cabinet-grotesk  h-full">
       <Header
         title="Over ons"
-        image="https://images.unsplash.com/photo-1605101100278-5d1deb2b6498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        image="/images/overons.jpg"
         imagePosition="center center"
       />
 
