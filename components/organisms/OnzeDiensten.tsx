@@ -7,80 +7,40 @@ import { MdPhotoCamera as MdPhotoCameraIcon } from 'react-icons/md';
 import { IoKeySharp } from 'react-icons/io5';
 import { BiCheckboxChecked } from 'react-icons/bi';
 
-const features = [
-  {
-    name: 'Woningverhuur',
-    description:
-      'U wilt geen leegstand, daarom zorgen wij ervoor dat de woning op korte termijn wordt bewoond door een betrouwbare huurder.',
-    href: '#',
-    icon: TbDoorEnterIcon,
-  },
-  {
-    name: 'Vastgoedbeheer',
-    description:
-      'Wij beheren uw portefeuille op een professionele en accurate manier. Om u als eigenaar volledig te ontzorgen zijn wij het eerste aanspreekpunt voor de huurder. Wij beschikken over een vast onderhoudsteam dat ingezet kan worden bij eventuele storingen en gebreken in de woning.',
-    href: '#',
-    icon: MdBusinessCenterIcon,
-  },
-  {
-    name: 'Aanhuur',
-    description:
-      'Droomhuis nog niet gevonden? De zoektocht naar een woning is erg lastig tegenwoordig. Bij ons kunt u een zoekopdracht achterlaten zodat wij samen met u, uw paleis kunnen vinden!',
-    href: '#',
-    icon: BsSearchIcon,
-  },
-  {
-    name: 'Bedrijfsonroerendgoed',
-    description:
-      'Bedrijfspand, kantoorruimte of winkelpand verhuren? Wij helpen bij het maken van de volgende stap. Wat doet de markt? Voor welke prijs kun je verhuren of kunt u beter verkopen?',
-    href: '#',
-    icon: MdCorporateFareIcon,
-  },
-  {
-    name: 'Verkoop',
-    description:
-      'Onze professionals begeleiden u in het verkoopproces van uw woning. Wij komen bij u langs voor een kosteloos kennismakingsgesprek met waardebepaling.',
-    href: '#',
-    icon: MdSellIcon,
-  },
-  {
-    name: "Foto's en video's maken van woningen",
-    description:
-      'Wij zorgen ervoor dat de woning op een professionele manier wordt gepresenteerd en zetten de woning dezelfde dag online.',
-    href: '#',
-    icon: MdPhotoCameraIcon,
-  },
-  {
-    name: 'Bezichtigingen',
-    description: 'Wij zijn 7 dagen per week beschikbaar voor bezichtigingen.',
-    href: '#',
-    icon: BiCheckboxChecked,
-  },
-  {
-    name: 'Huurovereenkomsten',
-    description:
-      'Naast het volledig uit handen geven van de verhuur kunt u ook alleen het opstellen van een huurovereenkomst door ons laten verzorgen.',
-    href: '#',
-    icon: BsEnvelopePaper,
-  },
-  {
-    name: 'Inspecties en sleuteloverdracht',
-    description:
-      'Voor het uitvoeren van inspecties en de sleuteloverdracht kunt u bij ons terecht, na afloop ontvangt u hiervan een duidelijk inspectierapport.',
-    href: '#',
-    icon: IoKeySharp,
-  },
-];
-
-export default function OnzeDiensten({
+export default async function OnzeDiensten({
   centeredText = false,
   withTitle = true,
-  itemCount = 9,
+  onHomePage = false,
 }: {
   centeredText?: boolean;
   withTitle?: boolean;
-  itemCount?: number;
+  onHomePage?: boolean;
 }) {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblQAgAMpfeetN2p9/`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      next: {
+        revalidate: 0,
+      },
+    },
+  );
+
+  if (!res.ok) {
+    return null;
+  }
+
+  const data = await res.json();
+
+  const { records } = data;
+
+  const filteredRecords = onHomePage
+    ? records.filter((record: any) => record.fields?.homepage === true)
+    : records;
+
   return (
     <div className="mx-auto max-w-6xl px-6 mb-10">
       <div className="mx-auto lg:mx-0">
@@ -99,32 +59,45 @@ export default function OnzeDiensten({
       </div>
       <div className="mx-auto mt-10 max-w-2xl sm:mt-20 lg:mt-12 lg:max-w-none">
         <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-          {features
-            .map((feature) => (
-              <div
-                key={feature.name}
-                className="flex flex-col"
-                data-aos="fade-left"
-              >
-                <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-950">
-                    <feature.icon
-                      className="h-6 w-6 text-white"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  {feature.name}
-                </dt>
-                <dd
-                  className="
-
-mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600"
-                >
-                  <p className="flex-auto">{feature.description}</p>
-                </dd>
-              </div>
-            ))
-            .slice(0, itemCount)}
+          {filteredRecords.map((record: any) => (
+            <div key={record.id} className="flex flex-col" data-aos="fade-left">
+              <dt className="text-base font-semibold leading-7 text-gray-900">
+                <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-950">
+                  {record.fields?.icon === 'TbDoorEnterIcon' && (
+                    <TbDoorEnterIcon className="h-6 w-6 text-white" />
+                  )}
+                  {record.fields?.icon === 'MdBusinessCenterIcon' && (
+                    <MdBusinessCenterIcon className="h-6 w-6 text-white" />
+                  )}
+                  {record.fields?.icon === 'BsSearchIcon' && (
+                    <BsSearchIcon className="h-6 w-6 text-white" />
+                  )}
+                  {record.fields?.icon.includes('MdCorporateFare') && (
+                    <MdCorporateFareIcon className="h-6 w-6 text-white" />
+                  )}
+                  {record.fields?.icon === 'MdSellIcon' && (
+                    <MdSellIcon className="h-6 w-6 text-white" />
+                  )}
+                  {record.fields?.icon === 'MdPhotoCameraIcon' && (
+                    <MdPhotoCameraIcon className="h-6 w-6 text-white" />
+                  )}
+                  {record.fields?.icon === 'IoKeySharp' && (
+                    <IoKeySharp className="h-6 w-6 text-white" />
+                  )}
+                  {record.fields?.icon === 'BiCheckboxChecked' && (
+                    <BiCheckboxChecked className="h-6 w-6 text-white" />
+                  )}
+                  {record.fields?.icon === 'BsEnvelopePaper' && (
+                    <BsEnvelopePaper className="h-6 w-6 text-white" />
+                  )}
+                </div>
+                {record.fields.Service}
+              </dt>
+              <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <p className="flex-auto">{record.fields?.description}</p>
+              </dd>
+            </div>
+          ))}
         </dl>
       </div>
     </div>

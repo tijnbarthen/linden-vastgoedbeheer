@@ -1,6 +1,28 @@
 import Link from 'next/link';
 
-function ChangeInRealEstate() {
+async function ChangeInRealEstate() {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblJXZgHwu1ovP6Ll/`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      next: {
+        revalidate: 0,
+      },
+    },
+  );
+
+  if (!res.ok) {
+    return null;
+  }
+
+  const data = await res.json();
+
+  const { records } = data;
+
+  console.log(records);
   return (
     <div className="bg-white">
       <div
@@ -9,33 +31,22 @@ function ChangeInRealEstate() {
         data-aos-delay="200"
       >
         <h2 className="h2 text-4xl text-left mb-6">
-          Tijd voor verandering in de makelaardij!
+          {records[0].fields?.titel_text}
         </h2>
-        <p className="text-lg mb-4">
-          Wij willen af van de typische term: 'huisjesmelkers'. Er zijn genoeg
-          eigenaren die wél investeren in hun appartement en die vinden het
-          belangrijk dat er een goede verstandhouding is tussen huurder en
-          verhuurder.
-        </p>
-        <p className="text-lg mb-4">
-          Dit is precies waar wij ons op focussen: persoonlijke aanpak, actief
-          meedenken, professionaliteit, betrouwbaarheid, servicegericht en
-          verduurzaming. Klinkt dit als muziek in de oren? Dan bent u bij ons
-          aan het juiste adres!
-        </p>
-        <p className="text-lg mb-4">
-          Bij ons heeft u een vast aanspreekpunt met kennis van zaken. Wij geven
-          marktconform advies en voegen graag onze creativiteit toe bij de
-          verhuur van uw woning.
-        </p>
-        <p className="text-lg mb-4">Wij ontzorgen u graag!</p>
-        <p className="text-lg">
+        <p
+          className="text-lg mb-4"
+          dangerouslySetInnerHTML={{
+            __html: records[0].fields?.Descriptie.replace(/\n/g, '<br />'),
+          }}
+        ></p>
+
+        {/* <p className="text-lg">
           U kunt{' '}
           <Link className="underline text-blue-600" href={'/contact'}>
             contact
           </Link>{' '}
           met ons opnemen voor een kennismakingsgesprek en vrijblijvend advies.
-        </p>
+        </p> */}
       </div>
     </div>
   );

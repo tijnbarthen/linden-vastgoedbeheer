@@ -63,7 +63,8 @@ export default async function Home() {
     <>
       <Hero />
       <Inspiration data={res} />
-      <OnzeDiensten centeredText itemCount={5} />
+      {/* @ts-expect-error server component */}
+      <OnzeDiensten centeredText onHomePage />
       {/* <Features /> */}
 
       {/* <Cta /> */}

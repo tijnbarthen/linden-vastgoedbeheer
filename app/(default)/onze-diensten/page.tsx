@@ -163,6 +163,7 @@ export default function Page() {
     <>
       <Header title="Onze Diensten" image="/images/onzeDiensten.jpg" />
       <div className="bg-white py-6">
+        {/* @ts-expect-error server component */}
         <OnzeDiensten withTitle={false} />
       </div>
     </>
