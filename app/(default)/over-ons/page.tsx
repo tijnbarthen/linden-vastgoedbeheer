@@ -15,7 +15,7 @@ export default function Page() {
         image="/images/overons.jpg"
         imagePosition="center center"
       />
-
+      {/* @ts-expect-error server component */}
       <ChangeInRealEstate />
 
       <TeamSection />

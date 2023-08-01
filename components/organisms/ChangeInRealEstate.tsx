@@ -9,7 +9,7 @@ async function ChangeInRealEstate() {
         'Content-Type': 'application/json',
       },
       next: {
-        revalidate: 0,
+        revalidate: 3600,
       },
     },
   );

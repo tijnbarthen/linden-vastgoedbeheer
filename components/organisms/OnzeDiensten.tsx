@@ -24,7 +24,7 @@ export default async function OnzeDiensten({
         'Content-Type': 'application/json',
       },
       next: {
-        revalidate: 0,
+        revalidate: 3600,
       },
     },
   );
