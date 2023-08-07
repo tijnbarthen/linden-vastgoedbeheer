@@ -107,7 +107,7 @@ function Contact() {
                       className="underline text-blue-600"
                       href="mailto:info@lindenvastgoed.nl"
                     >
-                      support@lindenvastgoed.nl
+                      info@lindenvastgoed.nl
                     </a>
                   </span>
                 </dd>
