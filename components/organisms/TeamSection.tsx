@@ -17,7 +17,28 @@ const people = [
   },
 ];
 
-export default function TeamSection() {
+export default async function TeamSection() {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblmCq98vQYOrY6qY/`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      next: {
+        revalidate: 3600,
+      },
+    },
+  );
+
+  if (!res.ok) {
+    return null;
+  }
+
+  const data = await res.json();
+
+  const { records } = data;
+
   return (
     <div className="bg-slate-100 my-10">
       <div className="py-24 md:py-32 lg:py-24 max-w-6xl mx-auto">
@@ -34,12 +55,16 @@ export default function TeamSection() {
             role="list"
             className="mx-auto grid grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-2"
           >
-            {people.map((person) => (
-              <li key={person.name}>
+            {records.map((person: any) => (
+              <li key={person.id}>
                 <Image
                   className="aspect-[3/3] w-full rounded-2xl object-cover"
-                  src={person.imageUrl}
-                  alt={person.name}
+                  src={
+                    person.fields.Name === 'Dominique van der Linden'
+                      ? '/images/do-van-der-linden.jpg'
+                      : '/images/jenna.jpg'
+                  }
+                  alt={person.fields.name}
                   width={300}
                   height={300}
                   style={{
@@ -47,18 +72,18 @@ export default function TeamSection() {
                   }}
                 />
                 <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900">
-                  {person.name}
+                  {person.fields.Name}
                 </h3>
                 <p className="text-base leading-7 text-gray-600">
-                  {person.role}
+                  {person.fields.role}
                 </p>
-                <p className="mt-4 text-base leading-7 text-gray-600">
-                  {person.bio}
-                </p>
+                {/* <p className="mt-4 text-base leading-7 text-gray-600">
+
+                </p> */}
                 <ul role="list" className="mt-6 flex gap-x-6">
                   <li>
                     <a
-                      href={person.linkedinUrl}
+                      href={person.fields.linkedinUrl}
                       className="text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">LinkedIn</span>

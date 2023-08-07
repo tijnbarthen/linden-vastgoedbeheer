@@ -17,7 +17,7 @@ export default function Page() {
       />
       {/* @ts-expect-error server component */}
       <ChangeInRealEstate />
-
+      {/* @ts-expect-error server component */}
       <TeamSection />
       {/* <TestimonialsDouble />  */}
       {/* <Faqs /> */}
