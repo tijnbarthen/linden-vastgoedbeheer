@@ -3,7 +3,7 @@ import Image from 'next/image';
 const people = [
   {
     name: 'Dominique van der Linden',
-    role: 'Eigennaresse',
+    role: 'Vastgoedadviseur',
     imageUrl: '/images/do-van-der-linden.jpg',
     bio: '',
     linkedinUrl: '#',
