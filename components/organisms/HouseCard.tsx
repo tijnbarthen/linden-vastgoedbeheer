@@ -166,7 +166,10 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                 )}
               </div>
               {Omschrijving && (
-                <p className="text-gray-700 text-base">{Omschrijving}</p>
+                <p className="text-gray-700 text-base">
+                  {Omschrijving.substring(0, 200)}
+                  {Omschrijving.length > 200 && '...'}
+                </p>
               )}
             </div>
 
