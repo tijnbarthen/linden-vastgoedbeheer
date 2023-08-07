@@ -105,7 +105,7 @@ function Contact() {
                   <span className="ml-3">
                     <a
                       className="underline text-blue-600"
-                      href="mailto:support@lindenvastgoed.nl"
+                      href="mailto:info@lindenvastgoed.nl"
                     >
                       support@lindenvastgoed.nl
                     </a>
