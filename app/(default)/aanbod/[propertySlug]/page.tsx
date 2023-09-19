@@ -208,9 +208,12 @@ export default async function Page({ params }: { params: any }) {
             </div>
             <div>
               {fields.Omschrijving && (
-                <p className="text-base lg:leading-tight leading-normal text-gray-600 mt-7">
-                  {fields.Omschrijving}
-                </p>
+                <p
+                  className="text-base lg:leading-tight leading-normal text-gray-600 mt-7"
+                  dangerouslySetInnerHTML={{
+                    __html: fields.Omschrijving.replace(/\n/g, '<br />'),
+                  }}
+                ></p>
               )}
             </div>
           </div>
