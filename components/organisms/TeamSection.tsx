@@ -26,7 +26,7 @@ export default async function TeamSection() {
         'Content-Type': 'application/json',
       },
       next: {
-        revalidate: 3600,
+        revalidate: 0,
       },
     },
   );
@@ -59,11 +59,7 @@ export default async function TeamSection() {
               <li key={person.id}>
                 <Image
                   className="aspect-[3/3] w-full rounded-2xl object-cover"
-                  src={
-                    person.fields.Name === 'Dominique van der Linden'
-                      ? '/images/do-van-der-linden.jpg'
-                      : '/images/jenna.jpg'
-                  }
+                  src={person.fields.imageUrl[0].thumbnails.large.url}
                   alt={person.fields.name}
                   width={300}
                   height={300}
