@@ -78,7 +78,6 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
               alt={JSON.stringify(Naam)}
               width={500}
               height={300}
-              quality={50}
             />
           )}
 
