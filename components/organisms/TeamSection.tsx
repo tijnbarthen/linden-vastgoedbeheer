@@ -57,7 +57,7 @@ export default async function TeamSection() {
           >
             {records.map((person: any) => (
               <li key={person.id}>
-                <Image
+                <img
                   className="aspect-[3/3] w-full rounded-2xl object-cover"
                   src={person.fields.imageUrl[0].thumbnails.large.url}
                   alt={person.fields.name}

@@ -47,7 +47,12 @@ export default function Footer() {
             <div className="shrink-0 mr-4">
               {/* Logo */}
               <Link className="inline-flex group mb-8 sm:mb-0" href="/">
-                <Image src={Logo} width={200} height={120} alt="logo" />
+                <img
+                  src={'/images/logo-linden.png'}
+                  width={200}
+                  height={120}
+                  alt="logo"
+                />
               </Link>
             </div>
           </div>

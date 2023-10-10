@@ -72,7 +72,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
           className={`flex flex-col rounded-lg shadow-lg bg-white h-full items-stretch ${className}`}
         >
           {getImageUrl() && (
-            <Image
+            <img
               className="w-full h-56 object-cover rounded-lg"
               src={getImageUrl()}
               alt={JSON.stringify(Naam)}

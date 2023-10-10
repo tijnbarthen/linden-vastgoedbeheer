@@ -34,7 +34,7 @@ export default function Creatives() {
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
                   >
-                    <Image
+                    <img
                       className="w-full h-16 object-cover opacity-60"
                       src={CreativeBg01}
                       width={258}
@@ -43,7 +43,7 @@ export default function Creatives() {
                     />
                     <div className="bg-white px-4 pb-6">
                       <div className="relative inline-flex -mt-8 mb-3">
-                        <Image
+                        <img
                           className="inline-flex rounded-full"
                           src={Creative01}
                           width={64}
@@ -105,7 +105,7 @@ export default function Creatives() {
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos-delay="200"
                   >
-                    <Image
+                    <img
                       className="w-full h-16 object-cover opacity-60"
                       src={CreativeBg02}
                       width={258}
@@ -114,7 +114,7 @@ export default function Creatives() {
                     />
                     <div className="bg-white px-4 pb-6">
                       <div className="relative inline-flex -mt-8 mb-3">
-                        <Image
+                        <img
                           className="inline-flex rounded-full"
                           src={Creative02}
                           width={64}
@@ -164,7 +164,7 @@ export default function Creatives() {
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos-delay="100"
                   >
-                    <Image
+                    <img
                       className="w-full h-16 object-cover opacity-60"
                       src={CreativeBg03}
                       width={258}
@@ -173,7 +173,7 @@ export default function Creatives() {
                     />
                     <div className="bg-white px-4 pb-6">
                       <div className="relative inline-flex -mt-8 mb-3">
-                        <Image
+                        <img
                           className="inline-flex rounded-full"
                           src={Creative03}
                           width={64}
@@ -220,7 +220,7 @@ export default function Creatives() {
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos-delay="300"
                   >
-                    <Image
+                    <img
                       className="w-full h-16 object-cover opacity-60"
                       src={CreativeBg04}
                       width={258}
@@ -229,7 +229,7 @@ export default function Creatives() {
                     />
                     <div className="bg-white px-4 pb-6">
                       <div className="relative inline-flex -mt-8 mb-3">
-                        <Image
+                        <img
                           className="inline-flex rounded-full"
                           src={Creative04}
                           width={64}
@@ -290,7 +290,7 @@ export default function Creatives() {
             {/* Content */}
             <div className="md:w-1/2 md:pl-10 lg:pl-20">
               <div className="text-center md:text-left">
-                <Image
+                <img
                   className="inline-block mb-12"
                   src={CreativesImage}
                   width={330}

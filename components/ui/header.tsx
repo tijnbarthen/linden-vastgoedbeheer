@@ -56,8 +56,8 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           <div className="shrink-0 mr-4">
             {/* Logo */}
             <Link href="/" aria-label={'Linden Vastgoed'}>
-              <Image
-                src={Logo}
+              <img
+                src={'/images/logo-linden.png'}
                 width={180}
                 className="cursor-pointer "
                 height={45}

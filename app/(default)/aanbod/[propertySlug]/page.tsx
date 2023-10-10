@@ -98,7 +98,7 @@ export default async function Page({ params }: { params: any }) {
       <div className="bg-white">
         <div className="container max-w-6xl mx-auto px-6 lg:flex items-start justify-between py-6 gap-6">
           <div className="block md:py-0 lg:w-1/2 xl:w-3/5">
-            {fields['Photos'] && <ImageComponent images={fields['Photos']} />}
+            {fields['Photos'] && <imgComponent images={fields['Photos']} />}
           </div>
           <div className="xl:w-2/5 lg:w-1/2  mt-6 lg:mt-0">
             <div className="pb-6">
