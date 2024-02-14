@@ -1,13 +1,13 @@
-import Container from '@/components/organisms/Container';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Container from "@/components/organisms/Container";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { useState } from 'react';
-import { IoBedOutline } from 'react-icons/io5';
-import { BiBath } from 'react-icons/bi';
-import { MdBalcony } from 'react-icons/md';
-import { GiGrass } from 'react-icons/gi';
-import ImageComponent from '@/components/organisms/ImageComponent';
-import Link from 'next/link';
+import { IoBedOutline } from "react-icons/io5";
+import { BiBath } from "react-icons/bi";
+import { MdBalcony } from "react-icons/md";
+import { GiGrass } from "react-icons/gi";
+import ImageComponent from "@/components/organisms/ImageComponent";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   try {
@@ -16,9 +16,9 @@ export async function generateStaticParams() {
       {
         headers: {
           Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      },
+      }
     );
 
     if (!res.ok) {
@@ -36,7 +36,7 @@ export async function generateStaticParams() {
     }));
   } catch (error) {
     // Handle the error
-    console.error('Error in generateStaticParams:', error);
+    console.error("Error in generateStaticParams:", error);
     // You can choose to throw the error again or return a default value
     // throw error;
   }
@@ -47,7 +47,7 @@ const getHouseData = async (propertySlug: string) => {
     const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblc1eqB70PISgpMq/`;
     const headers = {
       Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     };
     const params = {
       filterByFormula: `{RECORD_ID} = "${propertySlug}"`,
@@ -72,7 +72,7 @@ const getHouseData = async (propertySlug: string) => {
     return data.records[0];
   } catch (error) {
     // Handle the error
-    console.error('Error in getHouseData:', error);
+    console.error("Error in getHouseData:", error);
     // You can choose to throw the error again or return a default value
     throw error;
   }
@@ -98,7 +98,7 @@ export default async function Page({ params }: { params: any }) {
       <div className="bg-white">
         <div className="container max-w-6xl mx-auto px-6 lg:flex items-start justify-between py-6 gap-6">
           <div className="block md:py-0 lg:w-1/2 xl:w-3/5">
-            {fields['Photos'] && <ImageComponent images={fields['Photos']} />}
+            {fields["Photos"] && <ImageComponent images={fields["Photos"]} />}
           </div>
           <div className="xl:w-2/5 lg:w-1/2  mt-6 lg:mt-0">
             <div className="pb-6">
@@ -110,11 +110,21 @@ export default async function Page({ params }: { params: any }) {
               <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 mt-2">
                 {fields.Naam && fields.Naam}
               </h1>
-              {fields.Huursom && (
+              {fields.Status.toLowerCase() === "te koop" ? (
+                <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
+                  € {fields.Huursom} k.k.
+                </p>
+              ) : (
                 <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
                   € {fields.Huursom} excl. per maand
                 </p>
               )}
+
+              {/* {fields.Waarborgsom && (
+                <p className="text-base leading-4 text-gray-600 mt-2 font-bold ">
+                  Waarborgsom: € {fields.Waarborgsom}
+                </p>
+              )} */}
             </div>
             <div className="flex flex-row mb-5 gap-4 ">
               {fields.Slaapkamers && (
@@ -133,25 +143,25 @@ export default async function Page({ params }: { params: any }) {
                   </p>
                 </div>
               )}
-              {fields['M2'] && (
+              {fields["M2"] && (
                 <div className="flex flex-row gap-2 items-center">
                   <span
                     className=" text-blue-950 border border-blue-950 text-sm"
                     style={{
-                      padding: '0 4px',
+                      padding: "0 4px",
                     }}
                   >
                     M²
                   </span>
                   <p className="text-base leading- font-cabinet-grotesk font-bold text-blue-950">
-                    {fields['M2']}
+                    {fields["M2"]}
                   </p>
                 </div>
               )}
               {fields.Buitenruimte && (
                 <div className="flex flex-row gap-4 items-center">
                   {fields.Buitenruimte.map((item: any) => {
-                    if (item === 'Balkon') {
+                    if (item === "Balkon") {
                       return (
                         <>
                           <MdBalcony
@@ -164,7 +174,7 @@ export default async function Page({ params }: { params: any }) {
                           </p>
                         </>
                       );
-                    } else if (item === 'Tuin') {
+                    } else if (item === "Tuin") {
                       return (
                         <>
                           <GiGrass
@@ -196,11 +206,11 @@ export default async function Page({ params }: { params: any }) {
               <Link href="/contact">
                 <button
                   className={`btn-sm text-white ${
-                    fields.Status === 'Verhuurd'
-                      ? 'bg-slate-600'
-                      : 'bg-blue-950 hover:bg-blue-600'
+                    fields.Status === "Verhuurd"
+                      ? "bg-slate-600"
+                      : "bg-blue-950 hover:bg-blue-600"
                   } w-full shadow-sm`}
-                  disabled={fields.Status === 'Verhuurd' ? false : false}
+                  disabled={fields.Status === "Verhuurd" ? false : false}
                 >
                   Contact
                 </button>
@@ -211,7 +221,7 @@ export default async function Page({ params }: { params: any }) {
                 <p
                   className="text-base lg:leading-tight leading-normal text-gray-600 mt-7"
                   dangerouslySetInnerHTML={{
-                    __html: fields.Omschrijving.replace(/\n/g, '<br />'),
+                    __html: fields.Omschrijving.replace(/\n/g, "<br />"),
                   }}
                 ></p>
               )}
@@ -223,7 +233,7 @@ export default async function Page({ params }: { params: any }) {
     );
   } catch (error) {
     // Handle the error
-    console.error('Error in Page:', error);
+    console.error("Error in Page:", error);
     // Render an appropriate error message or fallback component
     return <div>Something went wrong</div>;
   }
@@ -336,7 +346,7 @@ function RentalProposalForm({ house }: { house: any }) {
                     name="guarantee"
                     type="text"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    defaultValue={'€' + house.Waarborgsom * 2}
+                    defaultValue={"€" + house.Waarborgsom * 2}
                     disabled
                   />
                 </div>

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function ImageComponent({ images }: { images: any }) {
   // console.log(images);
@@ -23,8 +23,9 @@ export default function ImageComponent({ images }: { images: any }) {
               src={image.url}
               key={image.id}
               style={{
-                objectFit: 'contain',
-                maxHeight: '400px',
+                objectFit: "contain",
+                width: "100%",
+                maxHeight: "400px",
               }}
             />
           </div>

@@ -1,10 +1,10 @@
-import React from 'react';
-import Link from 'next/link';
-import { IoBedOutline } from 'react-icons/io5';
-import { BiBath } from 'react-icons/bi';
-import Image from 'next/image';
-import { MdBalcony, MdRoofing } from 'react-icons/md';
-import { GiGrass } from 'react-icons/gi';
+import React from "react";
+import Link from "next/link";
+import { IoBedOutline } from "react-icons/io5";
+import { BiBath } from "react-icons/bi";
+import Image from "next/image";
+import { MdBalcony, MdRoofing } from "react-icons/md";
+import { GiGrass } from "react-icons/gi";
 
 interface House {
   fields: {
@@ -93,7 +93,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                   € {Huursom} excl. per maand
                 </p>
               )}
-              <div className="flex flex-row gap-4 mb-2">
+              <div className="flex flex-row gap-4 mb-2 flex-wrap">
                 {Slaapkamers && (
                   <div className="flex flex-row gap-2 items-center">
                     <IoBedOutline className="text-blue-950" size={20} />
@@ -115,7 +115,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                     <span
                       className=" text-blue-950 border border-blue-950 text-sm"
                       style={{
-                        padding: '0 4px',
+                        padding: "0 4px",
                       }}
                     >
                       M²
@@ -128,7 +128,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                 {Buitenruimte && (
                   <div className="flex flex-row gap-4 items-center">
                     {Buitenruimte.map((item: any) => {
-                      if (item === 'Balkon') {
+                      if (item === "Balkon") {
                         return (
                           <div key={item} className="flex flex-row gap-1">
                             <MdBalcony className="text-blue-950" size={20} />
@@ -137,7 +137,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                             </p>
                           </div>
                         );
-                      } else if (item === 'Tuin') {
+                      } else if (item === "Tuin") {
                         return (
                           <div key={item} className="flex flex-row gap-1">
                             <GiGrass className="text-blue-950 mb-1" size={20} />
@@ -146,7 +146,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                             </p>
                           </div>
                         );
-                      } else if (item === 'Dakterras') {
+                      } else if (item === "Dakterras") {
                         return (
                           <div key={item} className="flex flex-row gap-1">
                             <MdRoofing
@@ -167,7 +167,7 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
               {Omschrijving && (
                 <p className="text-gray-700 text-base">
                   {Omschrijving.substring(0, 200)}
-                  {Omschrijving.length > 200 && '...'}
+                  {Omschrijving.length > 200 && "..."}
                 </p>
               )}
             </div>
