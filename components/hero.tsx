@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import HeroImage2 from '@/public/images/hero-image-2.png';
+import HeroImage2 from "@/public/images/hero-image-2.png";
 
 export default function Hero() {
   return (
@@ -24,7 +24,7 @@ export default function Hero() {
               data-aos="fade-right"
               data-aos-delay="200"
             >
-              Verhuur | Beheer | Aanhuur
+              Verhuur | Beheer | Aanhuur | Verkoop
               {/* <span
                   className="relative inline-flex text-white h1 font-cabinet-grotesk mb-6 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  bg-blue-950 px-3"
                   data-aos="fade-right"
@@ -48,7 +48,7 @@ export default function Hero() {
                   className="btn text-white bg-blue-300 hover:bg-blue-600 w-full shadow-sm"
                   data-aos="fade-left"
                 >
-                  Verhuur
+                  Aanbod
                 </Link>
               </div>
               <div>
