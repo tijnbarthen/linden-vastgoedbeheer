@@ -88,7 +88,11 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
                   {Naam}
                 </div>
               )}
-              {Huursom && (
+              {Status.toLowerCase() === "te koop" ? (
+                <p className="text-base leading-4 text-gray-600 mb-4  font-bold ">
+                  € {Huursom} k.k.
+                </p>
+              ) : (
                 <p className="text-base leading-4 text-gray-600 mb-4  font-bold ">
                   € {Huursom} excl. per maand
                 </p>
