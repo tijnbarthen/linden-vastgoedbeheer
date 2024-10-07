@@ -56,9 +56,19 @@ export default async function Page() {
                 (house: any) =>
                   house.fields?.Status?.toLowerCase() !== "te koop"
               ),
-            ].map((house: any) => (
-              <HouseCard key={house.id} house={house} />
-            ))}
+            ]
+              .filter((house: any) => {
+                // Check for essential properties
+                return (
+                  house.fields?.Naam &&
+                  house.fields?.Status &&
+                  house.fields?.Adres &&
+                  house.fields?.Huursom
+                );
+              })
+              .map((house: any) => (
+                <HouseCard key={house.id} house={house} />
+              ))}
           </div>
         </div>
       </div>

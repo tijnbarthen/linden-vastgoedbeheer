@@ -8,6 +8,7 @@ import { MdBalcony } from "react-icons/md";
 import { GiGrass } from "react-icons/gi";
 import ImageComponent from "@/components/organisms/ImageComponent";
 import Link from "next/link";
+import { FaCheck } from "react-icons/fa";
 
 export async function generateStaticParams() {
   try {
@@ -91,6 +92,16 @@ export default async function Page({ params }: { params: any }) {
         </div>
       );
     }
+    const getStatusStyle = (status: string) => {
+      switch (status.toLowerCase()) {
+        case "te huur":
+          return "bg-green-50 text-green-700 ring-green-600/20";
+        case "verhuurd":
+          return "bg-blue-50 text-blue-700 ring-blue-600/20";
+        default:
+          return "bg-gray-50 text-gray-700 ring-gray-600/20";
+      }
+    };
 
     const { fields } = houseData;
 
@@ -103,7 +114,14 @@ export default async function Page({ params }: { params: any }) {
           <div className="xl:w-2/5 lg:w-1/2  mt-6 lg:mt-0">
             <div className="pb-6">
               {fields.Status && (
-                <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                <span
+                  className={`inline-flex rounded-md ${getStatusStyle(
+                    fields.Status
+                  )} px-2 py-1 text-xs font-medium ring-1 ring-inset flex items-center`}
+                >
+                  {fields.Status.toLowerCase() === "verhuurd" && (
+                    <FaCheck className="mr-1" />
+                  )}
                   {fields.Status}
                 </span>
               )}

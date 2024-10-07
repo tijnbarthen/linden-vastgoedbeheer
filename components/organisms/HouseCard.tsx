@@ -5,6 +5,7 @@ import { BiBath } from "react-icons/bi";
 import Image from "next/image";
 import { MdBalcony, MdRoofing } from "react-icons/md";
 import { GiGrass } from "react-icons/gi";
+import { FaCheck } from "react-icons/fa"; // Import the check icon
 
 interface House {
   fields: {
@@ -57,6 +58,17 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
     return null;
   };
 
+  const getStatusStyle = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "te huur":
+        return "bg-green-50 text-green-700 ring-green-600/20";
+      case "verhuurd":
+        return "bg-blue-50 text-blue-700 ring-blue-600/20";
+      default:
+        return "bg-gray-50 text-gray-700 ring-gray-600/20";
+    }
+  };
+
   return (
     <Link href="/aanbod/[id]" as={`/aanbod/${RECORD_ID}`}>
       <div
@@ -64,7 +76,14 @@ const HouseCard: React.FC<CardProps> = ({ house, className }) => {
         data-aos="fade-right"
       >
         {Status && (
-          <span className="absolute top-2 left-2 rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+          <span
+            className={`absolute top-2 left-2 rounded-md px-2 py-1 text-xs font-medium justify-center ring-1 ring-inset flex items-center ${getStatusStyle(
+              Status
+            )}`}
+          >
+            {Status.toLowerCase() === "verhuurd" && (
+              <FaCheck className="mr-1" />
+            )}
             {Status}
           </span>
         )}
